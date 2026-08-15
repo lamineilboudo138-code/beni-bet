@@ -2,29 +2,33 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BENI BET - Officiel</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>BENI BET - Clone Officiel</title>
 <style>
-body{margin:0;font-family:Arial;background:#0f172a;color:white;text-align:center}
-.header{background:linear-gradient(90deg,#facc15,#f59e0b);color:#000;padding:20px;font-weight:bold;font-size:22px}
-.card{background:#1e293b;margin:20px;padding:20px;border-radius:15px;border:1px solid #facc15}
-.btn{background:#facc15;color:#000;padding:15px 25px;border-radius:10px;font-weight:bold;text-decoration:none;display:inline-block;margin-top:10px;font-size:18px}
-.bonus{font-size:40px;font-weight:bold;color:#facc15}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0f172a;color:#fff}
+.top{background:#1a2a4a;padding:12px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{color:#facc15;font-weight:900;font-size:22px}
+.logo span{color:#fff}
+.btn-jaune{background:#facc15;color:#000;padding:8px 16px;border-radius:20px;font-weight:bold;text-decoration:none;font-size:13px}
+.menu{display:flex;gap:8px;padding:10px;background:#162032;overflow-x:auto;white-space:nowrap}
+.menu a{background:#1e293b;color:#94a3b8;padding:8px 14px;border-radius:20px;text-decoration:none;font-size:13px}
+.menu a.active{background:#facc15;color:#000;font-weight:bold}
+.card{background:#1e293b;margin:12px;border-radius:12px;overflow:hidden;border:1px solid #2a3a5a}
+.card-head{background:#243350;padding:10px 14px;font-weight:bold;display:flex;justify-content:space-between;font-size:13px}
+.match{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid #2a3a5a}
+.match:last-child{border:0}
+.teams{font-size:13px;line-height:18px}
+.teams small{color:#94a3b8}
+.cotes{display:flex;gap:6px}
+.cote{background:#0f172a;border:1px solid #334155;padding:6px 10px;border-radius:6px;font-size:12px;font-weight:bold;cursor:pointer}
+.cote:hover{background:#facc15;color:#000}
+.bonus-box{background:linear-gradient(135deg,#facc15,#f59e0b);color:#000;text-align:center;padding:18px;border-radius:12px;margin:12px}
+.bonus-box h1{font-size:36px}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#162032;display:flex;justify-content:space-around;padding:10px 0;border-top:1px solid #2a3a5a}
+.bottom a{color:#94a3b8;text-decoration:none;font-size:11px;text-align:center}
+.bottom a.active{color:#facc15}
+.live{color:#ef4444;font-size:10px;font-weight:bold;animation:blink 1s infinite}
+@keyframes blink{50%{opacity:0}}
 </style>
-</head>
-<body>
-<div class="header">BENI BET - Gagnez Gros</div>
-<div class="card">
-<div class="bonus">200%</div>
-<p>BONUS DE BIENVENUE</p>
-<p>Jusqu'à <b>65 000 XOF</b> sur ton premier dépôt</p>
-<a class="btn" href="https://wa.me/22607664542?text=Je%20veux%20jouer%20BENI%20BET">JOUER MAINTENANT</a>
-</div>
-<div class="card">
-<h3>🎮 Jeux Disponibles</h3>
-<p>⚽ Paris Sportifs<br>🎰 Crash, Aviator<br>🎲 Roulette & Casino</p>
-<a class="btn" href="https://wa.me/22607664542">S'INSCRIRE</a>
-</div>
-<div class="card">
-<p>Dépôt Rapide via</p>
-<p><b>Orange Money / Moov Money</b><br>Numéro
+</
