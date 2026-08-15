@@ -2,114 +2,50 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BENI BET</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>BENI BET - Officiel</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#eef2f7;color:#222}
+body{background:#eef2f7}
 .top{background:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;border-bottom:1px solid #ddd}
 .logo{font-weight:900;color:#0f9d58;font-size:20px}
-.logo span{color:#222}
-.filters{display:flex;gap:8px;padding:10px;background:#fff;overflow:auto}
-.f{border:1px solid #ddd;padding:6px 12px;border-radius:20px;font-size:13px;white-space:nowrap;background:#fff}
-.f.active{background:#0f9d58;color:#fff;border-color:#0f9d58}
-.sports{display:flex;gap:10px;padding:8px 10px;background:#fff;overflow:auto;border-bottom:1px solid #eee}
-.s{padding:6px 12px;border-radius:20px;font-size:12px;background:#f1f5f9}
-.s.active{background:#0f9d58;color:#fff}
-h3{padding:12px;font-size:14px;display:flex;justify-content:space-between}
-.card{background:#fff;margin:0 10px 10px;border-radius:10px;padding:10px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
-.teams{display:flex;justify-content:space-between;font-size:13px;font-weight:bold}
-.score{text-align:right;line-height:18px}
-.live{color:red;font-size:10px}
-.cotes{display:flex;gap:6px;margin-top:8px}
-.cote{flex:1;background:#f1f5f9;text-align:center;padding:8px;border-radius:6px;font-size:12px;font-weight:bold;cursor:pointer;border:1px solid #e2e8f0}
-.cote:hover{background:#0f9d58;color:#fff}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd}
-.bottom a{font-size:11px;text-align:center;text-decoration:none;color:#64748b}
-.bottom a.active{color:#0f9d58}
-.coupon{position:fixed;bottom:65px;left:50%;transform:translateX(-50%);background:#0f9d58;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 12px rgba(0,0,0,.3)}
-.page{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:20;overflow:auto}
+.logo span{color:#111}
+.nav3{display:flex;gap:8px;padding:10px;background:#fff}
+.nav3 div{flex:1;text-align:center;padding:8px;border-radius:20px;border:1px solid #ddd;font-size:13px;cursor:pointer}
+.nav3 div.active{background:#0f9d58;color:#fff;border-color:#0f9d58}
+.sports{display:flex;gap:8px;padding:8px;background:#fff;overflow:auto;border-bottom:1px solid #eee}
+.sports span{white-space:nowrap;padding:6px 12px;background:#f1f5f9;border-radius:20px;font-size:12px;cursor:pointer}
+.sports span.active{background:#0f9d58;color:#fff}
+h3{padding:12px 12px 6px;font-size:13px;display:flex;justify-content:space-between}
+.card{background:#fff;margin:0 10px 10px;border-radius:12px;padding:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);cursor:pointer}
+.row{display:flex;justify-content:space-between;align-items:center}
+.small{color:#64748b;font-size:11px}
+.score{font-weight:900;text-align:right}
+.live{color:#ef4444;font-size:10px;font-weight:bold}
+.cotes{display:flex;gap:6px;margin-top:10px}
+.cote{flex:1;background:#f8fafc;border:1px solid #e2e8f0;text-align:center;padding:9px 0;border-radius:8px;font-size:12px;font-weight:bold}
+.cote:active{background:#0f9d58;color:#fff}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0 10px;border-top:1px solid #ddd;z-index:15}
+.bottom a{font-size:11px;text-align:center;text-decoration:none;color:#64748b;flex:1}
+.bottom a.active{color:#0f9d58;font-weight:bold}
+.coupon{position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:#0f9d58;color:#fff;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 6px 18px rgba(0,0,0,.3);z-index:16}
+.page{display:none;position:fixed;inset:0;background:#eef2f7;z-index:30;overflow:auto;padding-bottom:80px}
 .page.active{display:block}
-.menu-head{background:#0f9d58;color:#fff;padding:20px;text-align:center}
-.menu-list a{display:flex;justify-content:space-between;padding:14px 16px;border-bottom:1px solid #eee;text-decoration:none;color:#222;font-size:14px}
-.btn-retour{background:#eee;border:0;padding:6px 10px;border-radius:6px;margin:8px;cursor:pointer}
+.header-page{background:#fff;padding:12px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #ddd;position:sticky;top:0}
+.btn-back{border:0;background:#f1f5f9;padding:7px 12px;border-radius:8px;cursor:pointer}
+.tabs{display:flex;gap:8px;padding:10px;background:#fff;overflow:auto;border-bottom:1px solid #eee;position:sticky;top:49px}
+.tabs span{white-space:nowrap;padding:7px 14px;background:#f1f5f9;border-radius:20px;font-size:12px;cursor:pointer}
+.tabs span.active{background:#0f9d58;color:#fff}
+.market{background:#fff;margin:10px;border-radius:12px;padding:10px}
+.market h4{font-size:13px;margin-bottom:8px;display:flex;justify-content:space-between}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.menu-head{background:#0f9d58;color:#fff;padding:24px;text-align:center}
+.menu-list a{display:flex;justify-content:space-between;padding:15px;border-bottom:1px solid #eee;background:#fff;text-decoration:none;color:#111;font-size:14px}
 </style>
 </head>
 <body>
 
+<!-- HOME -->
 <div id="home">
-<div class="top"><div class="logo">BENI <span>BET</span></div><div>🔍 👤</div></div>
-<div class="filters"><div class="f active">🟢 EN DIRECT</div><div class="f">AVANT-MATCH</div><div class="f">⚽ SPORTS</div></div>
-<div class="sports"><div class="s active">Tout</div><div class="s">Football</div><div class="s">Tennis</div><div class="s">Basket</div><div class="s">Volley</div><div class="s">🏸 Badminton</div></div>
-
-<h3>POPULAIRE EN DIRECT <span class="live">● LIVE</span></h3>
-
-<div class="card" onclick="alert('Pari ajouté au coupon!')">
-<div class="teams"><div>Alavés<br><small>84' - En cours</small><br>Getafe</div><div class="score"><span class="live">LIVE 84'</span><br>0<br>0</div></div>
-<div class="cotes"><div class="cote">V1 1.87</div><div class="cote">X 3.19</div><div class="cote">V2 3.22</div></div>
-</div>
-
-<div class="card"><div class="teams"><div>Académico de Viseu<br><small>90' - En cours</small><br>Santa Clara</div><div class="score"><span class="live">LIVE 89'</span><br>0<br>1</div></div>
-<div class="cotes"><div class="cote">V1 1.62</div><div class="cote">X 3.13</div><div class="cote">V2 3.31</div></div></div>
-
-<div class="card"><div class="teams"><div>Excelsior<br><small>73' - En cours</small><br>PSV Eindhoven</div><div class="score"><span class="live">LIVE 45'</span><br>0<br>1</div></div>
-<div class="cotes"><div class="cote">V1 1.95</div><div class="cote">X 3.06</div><div class="cote">V2 2.35</div></div></div>
-
-<div style="height:90px"></div>
-</div>
-
-<!-- PAGE MENU -->
-<div id="page-menu" class="page">
-<button class="btn-retour" onclick="show('home')">← Retour</button>
-<div class="menu-head">
-<div style="background:#fff;width:70px;height:70px;border-radius:50%;margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:30px">👤</div>
-<h2>Joueur BENI</h2><p>+226 07 66 45 42</p>
-<div style="background:rgba(0,0,0,.2);display:inline-block;padding:6px 12px;border-radius:20px;margin-top:8px">Solde<br><b>0 XOF</b></div>
-</div>
-<div class="menu-list">
-<a href="#" onclick="openParam('infos');return false"><span>👤 Informations personnelles</span><span>›</span></a>
-<a href="#" onclick="openParam('depot');return false"><span>💰 Historique Dépôt & Retrait</span><span>›</span></a>
-<a href="#" onclick="openParam('trans');return false"><span>📊 Historique des Transactions</span><span>›</span></a>
-<a href="#" onclick="openParam('paris');return false"><span>🎫 Historique des Paris</span><span>›</span></a>
-<a href="#" onclick="openParam('parametres');return false"><span>⚙️ Paramètres</span><span>›</span></a>
-<a href="https://wa.me/22607664542"><span>💬 Support WhatsApp 07 66 45 42</span><span>›</span></a>
-</div>
-</div>
-
-<!-- PAGE PARAMETRES -->
-<div id="page-parametres" class="page">
-<button class="btn-retour" onclick="show('page-menu')">← Retour Menu</button>
-<div style="padding:16px">
-<h2>⚙️ Paramètres</h2><br>
-<div class="card"><b>Langue</b><br><select style="width:100%;padding:10px;margin-top:6px"><option>Français</option><option>English</option></select></div>
-<div class="card"><b>Cote Format</b><br><select style="width:100%;padding:10px;margin-top:6px"><option>Décimal (1.87)</option><option>Fractionnaire</option></select></div>
-<div class="card"><b>Notifications</b><br><label><input type="checkbox" checked> Recevoir les bonus</label></div>
-<div class="card"><b>Sécurité</b><br><button style="width:100%;padding:12px;background:#0f9d58;color:#fff;border:0;border-radius:8px;margin-top:6px" onclick="alert('Code changé!')">Changer mot de passe</button></div>
-<div class="card"><b>Version</b><br>BENI BET v2.0 - Officiel Burkina</div>
-<button style="width:100%;padding:14px;background:#ef4444;color:#fff;border:0;border-radius:8px;margin-top:10px" onclick="show('home')">Déconnexion</button>
-</div>
-</div>
-
-<div class="bottom">
-<a href="#" onclick="show('home');return false" class="active">⚽<br>Direct</a>
-<a href="#">📅<br>Avant-match</a>
-<div style="width:56px"></div>
-<a href="#">🕘<br>Historique</a>
-<a href="#" onclick="show('page-menu');return false">☰<br>Menu</a>
-</div>
-<div class="coupon" onclick="show('page-menu')">🎫<br></div>
-
-<script>
-function show(id){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById('home').style.display=id==='home'?'block':'none';
- if(id!=='home'){document.getElementById(id).classList.add('active')}
- window.scrollTo(0,0);
-}
-function openParam(type){
- if(type==='parametres'){show('page-parametres')}
- else{alert('Page '+type+' bientôt disponible. Pour le moment, Paramètres fonctionne!'); show('page-parametres')}
-}
-</script>
-</body>
-</html>
+<div class
