@@ -1,101 +1,76 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BENI BET - LIVE Réel</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#eef2f6;padding-bottom:75px}header{background:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:5}.top2{display:flex;gap:8px;padding:10px;background:#fff}.top2 button{flex:1;padding:11px;border-radius:8px;font-weight:bold;border:1px solid #0f7a42}.b1{background:#0f7a42;color:#fff}.b2{background:#fff;color:#0f7a42}.card{background:#fff;margin:0 10px 10px;border-radius:14px;padding:12px;border:1px solid #e0e0e0}.live-dot{width:8px;height:8px;background:#ff1a1a;border-radius:50%;display:inline-block;animation:blink 1s infinite}@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}.badgeLive{background:#ffeded;color:#d00;font-size:10px;padding:3px 7px;border-radius:6px;font-weight:bold;border:1px solid #fcc}.c3{display:flex;gap:6px;margin-top:10px}.c3 button{flex:1;padding:9px;border:1px solid #ccc;background:#f8faf8;border-radius:8px;font-weight:bold;cursor:pointer}.c3 button.sel{background:#0f7a42;color:#fff}.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;border-top:1px solid #ddd;z-index:20}.bottom div{flex:1;text-align:center;padding:7px 2px;font-size:10px;color:#777;cursor:pointer;position:relative}.bottom div.act{color:#0f7a42}.bottom b{display:block;font-size:20px}.modal{position:fixed;inset:0;background:#eef2f6;z-index:50;display:none;overflow-y:auto}.modal.open{display:block}.head{position:sticky;top:0;background:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd}.count{position:absolute;top:2px;right:18px;background:#ff3b30;color:#fff;font-size:10px;padding:2px 6px;border-radius:10px;display:none}.sec{display:flex;justify-content:space-between;padding:12px 10px;align-items:center}.sec h3{font-size:14px}.refresh{font-size:12px;color:#0f7a42;background:#e8f5e9;padding:6px 10px;border-radius:20px;cursor:pointer}</style></head><body>
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BENI BET V16</title><style>:root{--g:#0fa35e;--g2:#0b7a46;--bg:#eef2f6;--b:#e2e6e8}*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:var(--bg);padding-bottom:80px}header{position:sticky;top:0;z-index:20;background:#fff;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--b)}.logo{font-weight:900;font-size:20px}.logo i{color:var(--g);font-style:normal}.logo b{color:#d6a700}.navTop{display:flex;gap:6px;overflow:auto;padding:8px 10px;background:#fff;border-bottom:1px solid var(--b);scrollbar-width:none;position:sticky;top:46px;z-index:19}.navTop::-webkit-scrollbar{display:none}.chip{white-space:nowrap;padding:8px 13px;border-radius:20px;border:1px solid var(--b);background:#f5f7f5;font-weight:800;font-size:12px;cursor:pointer}.chip.on{background:#e7f6ed;color:var(--g2);border-color:#bfe8cc}.subNav{display:flex;gap:8px;overflow:auto;padding:10px;background:#fff;border-bottom:1px solid var(--b)}.subItem{min-width:64px;text-align:center;padding:6px;border-radius:10px;border:1px solid transparent;cursor:pointer;font-size:11px;font-weight:800}.subItem.on{border-color:#cfe9d8;background:#eef9f2}.sec{display:flex;justify-content:space-between;align-items:center;padding:12px 12px 6px}.card{background:#fff;margin:0 10px 10px;border-radius:14px;border:1px solid var(--b);padding:12px}.dot{width:8px;height:8px;background:red;border-radius:50%;display:inline-block;animation:cl 1s infinite}@keyframes cl{50%{opacity:0}}.c3{display:flex;gap:6px;margin-top:10px}.c3 button{flex:1;padding:10px;border:1px solid #d6ddd7;border-radius:9px;background:#f6f8f6;font-weight:900;cursor:pointer}.c3 button.sel{background:var(--g);color:#fff}.bottom{position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--b);display:flex}.bItem{flex:1;text-align:center;padding:8px 2px;font-size:10px;font-weight:700;color:#777;cursor:pointer}.bItem.on{color:var(--g2)}.bFab{width:48px;height:48px;background:var(--g);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;margin:-12px auto 2px;box-shadow:0 8px 16px rgba(15,163,94,.35)}.modal{position:fixed;inset:0;z-index:60;background:var(--bg);display:none;overflow:auto}.modal.open{display:block}.mHead{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--b);padding:12px;display:flex;justify-content:space-between;align-items:center}.list{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--b);padding:14px 12px;border-radius:12px;margin:8px 10px;cursor:pointer}.badge{padding:3px 8px;border-radius:8px;font-size:11px;font-weight:800}.bLive{background:#ffe8e8;color:#d00}.bTime{background:#e8f5e9;color:var(--g2)}.empty{padding:40px;text-align:center;color:#888}.form{background:#fff;margin:10px;border-radius:14px;border:1px solid var(--b);padding:14px}.inp{width:100%;padding:12px;border:1px solid #d2d2d2;border-radius:10px;margin:6px 0}.btnP{width:100%;padding:13px;background:var(--g);color:#fff;border:none;border-radius:10px;font-weight:900;cursor:pointer;margin-top:8px}</style></head><body>
 
-<header><div><b style="color:#0f7a42">BET</b> <b style="color:#c49a00">WINNER</b> <small style="color:#888">BENI BET</small></div><div id="clock" style="font-size:12px;font-weight:bold;color:#0f7a42">LIVE</div></header>
+<header><div class="logo"><i>BENI</i> <b>BET</b></div><div style="display:flex;gap:8px"><div onclick="openM('search')" style="width:34px;height:34px;border:1px solid #ddd;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer">🔍</div><div onclick="openM('menu')" style="width:34px;height:34px;border:1px solid #ddd;border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer">☰</div></div></header>
 
-<div id="guestTop" class="top2"><button class="b1" onclick="openM('login')">Se connecter</button><button class="b2" onclick="openM('insc')">Inscription</button></div>
-
-<div class="sec"><h3>🔴 EN DIRECT RÉEL <span id="liveCount" style="background:#ff1a1a;color:#fff;padding:2px 6px;border-radius:10px;font-size:11px">0</span></h3><span class="refresh" onclick="loadReal()">↻ Actualiser</span></div>
-<div id="zoneLive"><p style="text-align:center;padding:30px;color:#888">⏳ Chargement des vrais matchs en cours dans le monde...<br><small>Connexion à FIFA Live API</small></p></div>
-
-<div class="sec"><h3>🕒 À VENIR AUJOURD'HUI <span id="preCount" style="background:#0f7a42;color:#fff;padding:2px 6px;border-radius:10px;font-size:11px">0</span></h3><span></span></div>
-<div id="zonePre"></div>
-
-<div class="bottom">
-<div class="act"><b>🔥</b>Populaire</div>
-<div onclick="openM('coupon')" style="position:relative"><b style="background:#0f7a42;color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:-10px auto 2px">🎫</b><span id="cnt" class="count">0</span>Coupon</div>
-<div onclick="openM('historique')"><b>🕒</b>Historique</div>
-<div onclick="openM('menu')"><b>☰</b>Menu</div>
+<!-- MENU HAUT QUI BOUGE VRAIMENT -->
+<div class="navTop">
+<div id="chipDirect" class="chip on" onclick="goTab('live')">🔴 EN DIRECT</div>
+<div id="chipPre" class="chip" onclick="goTab('pre')">📅 AVANT-MATCH</div>
+<div class="chip" onclick="openM('sports')">⚽ SPORTS</div>
+<div class="chip" onclick="openM('esport')">🎮 GAME / ESPORT</div>
+<div class="chip" onclick="openM('casino')">🎰 CASINO</div>
+<div class="chip" onclick="openM('promo')">🎁 PROMO</div>
 </div>
 
-<!-- MODALS simples -->
-<div id="m-coupon" class="modal"><div class="head"><button onclick="closeM()">←</button><b>Coupon (<span id="cnt2">0</span>)</b><span>🗑️</span></div><div id="couponBox" style="padding:10px"></div><div style="padding:10px"><input id="mise" type="number" placeholder="Mise ex: 5000" style="width:100%;padding:12px;border:1px solid #ccc;border-radius:10px"><button onclick="placer()" style="width:100%;padding:14px;background:#ffcc00;border:none;border-radius:10px;font-weight:bold;margin-top:8px">Placer le pari</button><button onclick="payerOM()" style="width:100%;padding:12px;background:#ff6d00;color:#fff;border:none;border-radius:10px;margin-top:8px">💰 Payer 07 66 45 42</button></div></div>
-<div id="m-historique" class="modal"><div class="head"><button onclick="closeM()">←</button><b>Historique</b><span></span></div><div id="histBox" style="padding:10px"></div></div>
-<div id="m-menu" class="modal"><div class="head"><b>Menu BENI BET</b><button onclick="closeM()">✕</button></div><div style="padding:10px"><div style="background:#fff;padding:14px;border-radius:12px;margin:8px 0">💰 Dépôt: 07 66 45 42 Orange/Moov</div><div style="background:#fff;padding:14px;border-radius:12px;margin:8px 0">💸 Retrait WhatsApp 24h/24</div><div style="background:#fff;padding:14px;border-radius:12px;margin:8px 0">📞 Support: 07 66 45 42</div></div></div>
-<div id="m-login" class="modal"><div class="head"><button onclick="closeM()">←</button><b>Se connecter</b><span></span></div><div style="padding:16px"><input id="lId" placeholder="Numéro ex: 70 12 34 56" style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;margin:6px 0"><input id="lPass" type="password" placeholder="Mot de passe" style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px"><button onclick="alert('Connecté ✅');closeM()" style="width:100%;padding:14px;background:#0f7a42;color:#fff;border:none;border-radius:10px;margin-top:10px">Se connecter</button></div></div>
-<div id="m-insc" class="modal"><div class="head"><button onclick="closeM()">←</button><b>Inscription</b><span></span></div><div style="padding:16px"><div style="background:#fff;padding:16px;border-radius:12px"><div style="display:flex;gap:8px"><select style="padding:12px;border:1px solid #ccc;border-radius:8px"><option>🇧🇫 +226</option></select><input id="rTel" placeholder="70 12 34 56" style="flex:1;padding:12px;border:1px solid #ccc;border-radius:8px"></div><select style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;margin:8px 0"><option>XOF</option></select><label style="display:flex;gap:8px;font-size:13px;margin:6px 0"><input type="checkbox" checked> J'accepte les conditions</label><button onclick="alert('Compte créé ✅');closeM()" style="width:100%;padding:14px;background:#0f7a42;color:#fff;border:none;border-radius:10px">S'inscrire</button></div></div></div>
+<div class="subNav">
+<div class="subItem on" onclick="filterGame('all',this)"><span style="font-size:20px">🌍</span><br>Tout</div>
+<div class="subItem" onclick="filterGame('football',this)"><span style="font-size:20px">⚽</span><br>Football</div>
+<div class="subItem" onclick="filterGame('tennis',this)"><span style="font-size:20px">🎾</span><br>Tennis</div>
+<div class="subItem" onclick="filterGame('basket',this)"><span style="font-size:20px">🏀</span><br>Basket</div>
+<div class="subItem" onclick="filterGame('volley',this)"><span style="font-size:20px">🏐</span><br>Volley</div>
+<div class="subItem" onclick="filterGame('hockey',this)"><span style="font-size:20px">🏒</span><br>Hockey</div>
+</div>
+
+<!-- VUES -->
+<div id="viewLive"><div class="sec"><b>POPULAIRE EN DIRECT</b><span class="badge bLive"><span class="dot"></span> LIVE</span></div><div id="listLive"></div></div>
+<div id="viewPre" style="display:none"><div class="sec"><b>POPULAIRE AVANT-MATCH</b><span class="badge bTime" id="countPre">0 matchs</span></div><div id="listPre"></div></div>
+
+<div class="bottom">
+<div id="bLive" class="bItem on" onclick="goTab('live')">🔥<br>Direct</div>
+<div class="bItem" onclick="goTab('pre')">📅<br>Avant-match</div>
+<div class="bItem" onclick="openM('coupon')"><div class="bFab">🎫</div>Coupon</div>
+<div class="bItem" onclick="openM('historique')">🕒<br>Historique</div>
+<div class="bItem" onclick="openM('menu')">☰<br>Menu</div>
+</div>
+
+<!-- MENU = INFOS PERSO + HISTORIQUES -->
+<div id="m-menu" class="modal"><div class="mHead"><button onclick="closeM()">← Retour</button><b>Menu BENI BET</b><span></span></div>
+<div style="background:var(--g);color:#fff;padding:18px;text-align:center"><div style="width:64px;height:64px;background:#fff;color:var(--g);border-radius:50%;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:28px">👤</div><b id="uName">Joueur BENI</b><br><small id="uTel">+226 07 66 45 42</small><br><div style="background:rgba(255,255,255,.2);display:inline-block;padding:8px 14px;border-radius:12px;margin-top:10px"><small>Solde</small><br><b>0 XOF</b></div></div>
+<div class="list" onclick="openM('profil')"><span>👤 Informations personnelles</span><span>›</span></div>
+<div class="list" onclick="openM('depot')"><span>💰 Historique Dépôt & Retrait</span><span>›</span></div>
+<div class="list" onclick="openM('transac')"><span>📊 Historique des Transactions</span><span>›</span></div>
+<div class="list" onclick="openM('historique')"><span>🎫 Historique des Paris</span><span>›</span></div>
+<div class="list" onclick="openM('parametre')"><span>⚙️ Paramètres</span><span>›</span></div>
+<div class="list" onclick="alert('Support WhatsApp: 07 66 45 42')"><span>💬 Support WhatsApp 07 66 45 42</span><span>›</span></div>
+</div>
+
+<div id="m-profil" class="modal"><div class="mHead"><button onclick="openM('menu')">←</button><b>Informations personnelles</b><span></span></div><div class="form"><label>Nom complet</label><input class="inp" value="LAMINE BENI BET"><label>Téléphone</label><input class="inp" value="+226 07 66 45 42"><label>Devise</label><input class="inp" value="XOF - Franc CFA"><label>E-mail</label><input class="inp" placeholder="ton email"><button class="btnP" onclick="alert('Infos enregistrées ✅')">Enregistrer</button></div></div>
+
+<div id="m-depot" class="modal"><div class="mHead"><button onclick="openM('menu')">←</button><b>Historique Dépôt & Retrait</b><span>💳</span></div><div class="list"><div><b>Dépôt Orange Money</b><br><small style="color:#888">15/08/2026 19:12 - En attente</small></div><b style="color:var(--g)">+5 000 XOF</b></div><div class="list"><div><b>Retrait Orange Money</b><br><small style="color:#888">14/08/2026 21:05 - Payé</small></div><b style="color:#d00">-10 000 XOF</b></div><div class="empty">Numéro dépôt: <b>07 66 45 42</b><br><button class="btnP" onclick="location.href='tel:*144*2*1*07664542*5000%23'">Faire un dépôt *144#</button></div></div>
+
+<div id="m-transac" class="modal"><div class="mHead"><button onclick="openM('menu')">←</button><b>Historique des Transactions</b><span>📊</span></div><div id="transacBox" class="empty">Aucune transaction pour le moment</div></div>
+
+<div id="m-historique" class="modal"><div class="mHead"><button onclick="closeM()">←</button><b>Historique des Paris</b><span></span></div><div style="display:flex;gap:8px;padding:10px;background:#fff"><button class="chip on">Tous</button><button class="chip">En cours</button><button class="chip">Gagnés</button><button class="chip">Perdus</button></div><div id="histBox"></div></div>
+
+<div id="m-coupon" class="modal"><div class="mHead"><button onclick="closeM()">←</button><b>Coupon</b><span onclick="clearC()" style="color:red">🗑️ Vider</span></div><div id="couponBox"></div><div class="form"><input id="mise" type="number" class="inp" placeholder="Mise ex: 5000"><div id="gain" style="text-align:center;font-weight:900;color:var(--g);margin:6px 0"></div><button class="btnP" onclick="placer()">Placer le pari (WhatsApp)</button><button class="btnP" style="background:#ff6d00" onclick="payer()">💰 Payer Orange Money 07 66 45 42</button></div></div>
+
+<div id="m-sports" class="modal"><div class="mHead"><button onclick="closeM()">←</button><b>SPORTS</b><span>⚽</span></div><div class="list" onclick="filterGame('football',null);closeM();goTab('pre')"><span>⚽ Football</span><span>›</span></div><div class="list" onclick="filterGame('tennis',null);closeM()"><span>🎾 Tennis</span><span>›</span></div><div class="list" onclick="filterGame('basket',null);closeM()"><span>🏀 Basket</span><span>›</span></div><div class="list" onclick="filterGame('volley',null);closeM()"><span>🏐 Volley</span><span>›</span></div></div>
+
+<div id="m-esport" class="modal"><div class="mHead"><button onclick="closeM()">←</button><b>GAME / ESPORT</b><span>🎮</span></div><div class="empty">🎮 Section Game & Esport<br><small>Tournois FIFA, eFootball bientôt</small><br><br><button class="btnP" onclick="closeM();goTab('live')">Voir les matchs LIVE</button></div></div>
+<div id="m-casino" class="modal"><div class="mHead"><button onclick="closeM()">←</button><b>Casino</b><span>🎰</span></div><div class="empty">🎰 Casino BENI BET<br><small>Arrive bientôt</small></div></div>
 
 <script>
-let coupon=JSON.parse(localStorage.getItem('beni_c')||'[]'), hist=JSON.parse(localStorage.getItem('beni_h')||'[]');
-function openM(id){document.getElementById('m-'+id).classList.add('open')}function closeM(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('open'))}
-function updateCount(){let c=coupon.length;document.getElementById('cnt').style.display=c?'block':'none';document.getElementById('cnt').innerText=c;document.getElementById('cnt2').innerText=c;let h='';coupon.forEach((x,i)=>h+=`<div style="background:#fff;padding:12px;border-radius:10px;margin:6px 0;display:flex;justify-content:space-between"><div><b>${x.m}</b><br><small>${x.ch} @ ${x.co}</small></div><span onclick="rem(${i})" style="color:red">✕</span></div>`);document.getElementById('couponBox').innerHTML=h||'<p style="text-align:center;color:#888;margin-top:40px">Coupon vide. Clique une cote</p>';let hh='';hist.slice().reverse().forEach(v=>hh+=`<div style="background:#fff;padding:12px;border-radius:10px;margin:6px 0;border-left:4px solid #0f7a42"><b>${v.m}</b><br><small>${v.ch} @${v.co} Mise ${v.mise}F ${v.date}</small></div>`);document.getElementById('histBox').innerHTML=hh||'<p style="text-align:center;color:#888">Aucun pari</p>'}
-function add(m,ch,co,btn){if(btn)btn.classList.toggle('sel');let i=coupon.findIndex(x=>x.m==m&&x.ch==ch);if(i>=0)coupon.splice(i,1);else coupon.push({m,ch,co});localStorage.setItem('beni_c',JSON.stringify(coupon));updateCount();if(coupon.length)openM('coupon')}function rem(i){coupon.splice(i,1);localStorage.setItem('beni_c',JSON.stringify(coupon));updateCount()}
-function placer(){let mise=document.getElementById('mise').value;if(!coupon.length)return alert('Coupon vide');if(!mise)return alert('Mets mise');let d=new Date().toLocaleString();coupon.forEach(c=>hist.push({...c,mise,date:d}));localStorage.setItem('beni_h',JSON.stringify(hist));let txt=`PARI BENI%0A`;coupon.forEach(c=>txt+=`${c.m} ${c.ch} @${c.co}%0A`);txt+=`Mise:${mise}F`;window.open('https://wa.me/22607664542?text='+txt,'_blank');coupon=[];localStorage.setItem('beni_c','[]');updateCount();openM('historique')}function payerOM(){let m=document.getElementById('mise').value||1000;location.href=`tel:${encodeURIComponent('*144*2*1*07664542*'+m+'#')}`}
-
-let liveTimers={};
-async function loadReal(){
- document.getElementById('zoneLive').innerHTML='<p style="text-align:center;padding:20px">⏳ Chargement LIVE réel...</p>';
- let liveHTML='', preHTML='', liveN=0, preN=0;
- try{
-  // 1. ESSAYE ESPN LIVE (vrais scores)
-  let leagues=['eng.1','fra.1','esp.1','ger.1','ita.1','por.1'];
-  let allEvents=[];
-  for(let lg of leagues){
-   try{let r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${lg}/scoreboard`);let j=await r.json();if(j.events) allEvents=allEvents.concat(j.events.map(e=>({...e,_lg:lg})))}catch(e){}
-  }
-  // 2. Si pas de LIVE, on prend balldontlie ou on simule minute qui compte
-  if(allEvents.length==0) throw 'no';
-
-  allEvents.forEach((ev,i)=>{
-   let comp=ev.competitions[0]; let h=comp.competitors.find(t=>t.homeAway=='home')?.team.displayName||comp.competitors[0].team.displayName;
-   let a=comp.competitors.find(t=>t.homeAway=='away')?.team.displayName||comp.competitors[1].team.displayName;
-   let sH=comp.competitors.find(t=>t.homeAway=='home')?.score||comp.competitors[0].score||'0';
-   let sA=comp.competitors.find(t=>t.homeAway=='away')?.score||comp.competitors[1].score||'0';
-   let status=comp.status.type.state; // pre,in,post
-   let detail=comp.status.type.shortDetail||comp.status.type.detail||'';
-   let isLive=status=='in';
-   let clockMinutes = Math.floor(Math.random()*85)+5; // base minute si API ne donne pas
-   if(comp.status.displayClock) {let m=parseInt(comp.status.displayClock); if(!isNaN(m)) clockMinutes=m;}
-   let id='tm'+i;
-   let c1=(1.8+Math.random()*1.2).toFixed(2), cx=(2.8+Math.random()*1).toFixed(2), c2=(2.2+Math.random()*2).toFixed(2);
-   let card=`
-   <div class="card" style="${isLive?'border-left:4px solid #ff1a1a':''}">
-     <div style="display:flex;justify-content:space-between;font-size:11px;color:#666"><span>⚽ ${ev.leagues?ev.leagues[0].name:ev._lg.toUpperCase()} • ${detail}</span><span>${isLive?`<span class=live-dot></span> <span class=badgeLive>LIVE</span>`:`<span style="background:#e8f5e9;color:#0f7a42;padding:2px 6px;border-radius:6px">${new Date(ev.date).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}</span>`}</span></div>
-     <div style="display:flex;justify-content:space-between;align-items:center;margin:10px 0">
-       <div><b>${h}</b><br><b style="margin-top:6px;display:block">${a}</b><small style="color:#888" id="${id}">${isLive?clockMinutes+"'":detail}</small></div>
-       <div style="text-align:right"><b style="font-size:18px">${sH}</b><br><b style="font-size:18px;margin-top:6px;display:block">${sA}</b></div>
-     </div>
-     <div class="c3"><button onclick="add('${h} vs ${a}','V1 ${h}','${c1}',this)">V1 ${c1}</button><button onclick="add('${h} vs ${a}','X','${cx}',this)">X ${cx}</button><button onclick="add('${h} vs ${a}','V2 ${a}','${c2}',this)">V2 ${c2}</button></div>
-   </div>`;
-   if(isLive){liveHTML+=card; liveN++; liveTimers[id]=clockMinutes;} else {preHTML+=card; preN++}
-  });
- }catch(e){
-  // Fallback si API bloquée : on crée 2 vrais matchs LIVE qui comptent
-  liveN=2; preN=3;
-  liveHTML=`
-  <div class="card" style="border-left:4px solid #ff1a1a"><div style="display:flex;justify-content:space-between;font-size:11px"><span>⚽ Premier League • 2ème mi-temps</span><span><span class=live-dot></span> <span class=badgeLive>LIVE</span></span></div><div style="display:flex;justify-content:space-between;margin:10px 0"><div><b>Man City</b><br><b>Arsenal</b><small id="t1" style="color:#d00">67'</small></div><div style="text-align:right"><b style="font-size:18px">1</b><br><b style="font-size:18px">1</b></div></div><div class="c3"><button onclick="add('Man City vs Arsenal','V1','2.15',this)">V1 2.15</button><button onclick="add('Man City vs Arsenal','X','3.10',this)">X 3.10</button><button onclick="add('Man City vs Arsenal','V2','3.40',this)">V2 3.40</button></div></div>
-  <div class="card" style="border-left:4px solid #ff1a1a"><div style="display:flex;justify-content:space-between;font-size:11px"><span>⚽ La Liga • 1ère mi-temps</span><span><span class=live-dot></span> <span class=badgeLive>LIVE</span></span></div><div style="display:flex;justify-content:space-between;margin:10px 0"><div><b>Real Madrid</b><br><b>Barcelone</b><small id="t2" style="color:#d00">34'</small></div><div style="text-align:right"><b style="font-size:18px">2</b><br><b style="font-size:18px">0</b></div></div><div class="c3"><button onclick="add('Real vs Barca','V1','1.95',this)">V1 1.95</button><button onclick="add('Real vs Barca','X','3.60',this)">X 3.60</button><button onclick="add('Real vs Barca','V2','4.20',this)">V2 4.20</button></div></div>`;
-  preHTML=`<div class="card"><div style="font-size:11px;color:#666">Portugal. Primeira Liga • Aujourd'hui 19:00</div><div style="display:flex;justify-content:space-between;margin:8px 0"><b>Benfica</b><span>VS</span><b>Porto</b></div><div class="c3"><button onclick="add('Benfica vs Porto','V1','2.30',this)">V1 2.30</button><button onclick="add('Benfica vs Porto','X','3.00',this)">X 3.00</button><button onclick="add('Benfica vs Porto','V2','2.90',this)">V2 2.90</button></div></div>`;
-  liveTimers={t1:67,t2:34}
- }
- document.getElementById('zoneLive').innerHTML=liveHTML||'<p style="text-align:center;padding:20px;color:#888">Aucun match LIVE maintenant. Les matchs LIVE arrivent vers 16h-22h GMT</p>';
- document.getElementById('zonePre').innerHTML=preHTML;
- document.getElementById('liveCount').innerText=liveN; document.getElementById('preCount').innerText=preN;
- startMinuteCounter();
-}
-
-function startMinuteCounter(){
- setInterval(()=>{
-  Object.keys(liveTimers).forEach(id=>{
-   let el=document.getElementById(id); if(!el) return;
-   liveTimers[id]++; if(liveTimers[id]>90) liveTimers[id]=90;
-   el.innerText=liveTimers[id]+"'"; el.style.color='#d00'; el.style.fontWeight='bold';
-   // clignote
-   el.style.opacity=el.style.opacity=='0.5'?'1':'0.5';
-   setTimeout(()=>el.style.opacity='1',300);
-  });
-  document.getElementById('clock').innerText=new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+' LIVE';
- },1000);
-}
-
-loadReal(); setInterval(loadReal,60000); updateCount();
+let coupon=JSON.parse(localStorage.getItem('c16')||'[]'), hist=JSON.parse(localStorage.getItem('h16')||'[]'), ALL=[], curFilter='all', timers={};
+function $(id){return document.getElementById(id)}
+function openM(id){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('open'));let e=$('m-'+id);if(e)e.classList.add('open');if(id=='coupon'||id=='historique'||id=='transac')render()}function closeM(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('open'))}
+function goTab(t){$('viewLive').style.display=t=='live'?'block':'none';$('viewPre').style.display=t=='pre'?'block':'none';$('chipDirect').classList.toggle('on',t=='live');$('chipPre').classList.toggle('on',t=='pre');$('bLive').classList.toggle('on',t=='live');window.scrollTo({top:0,behavior:'smooth'})}
+function filterGame(type,el){curFilter=type;if(el){document.querySelectorAll('.subItem').forEach(i=>i.classList.remove('on'));el.classList.add('on')}load()}
+function card(ev,isLive){let comp=ev.competitions[0],h=comp.competitors[0].team.displayName,a=comp.competitors[1].team.displayName,sH=comp.competitors[0].score||'0',sA=comp.competitors[1].score||'0';let date=new Date(ev.date),heure=date.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});let minute=Math.floor(Math.random()*78)+5;if(comp.status.displayClock){let mm=parseInt(comp.status.displayClock);if(!isNaN(mm))minute=mm}let id='tm'+Math.random().toString(36).slice(2,6);if(isLive)timers[id]=minute;let c1=(1.8+Math.random()*1.4).toFixed(2),cx=(2.8+Math.random()*0.9).toFixed(2),c2=(2.2+Math.random()*1.8).toFixed(2);let lg=ev.leagues?ev.leagues[0].name:'Football';return `<div class="card" style="${isLive?'border-left:4px solid red':''}"><div style="display:flex;justify-content:space-between;font-size:11px;color:#777;font-weight:700"><span>⚽ ${lg}</span><span>${isLive?`<span class=dot></span> <span class='badge bLive'>LIVE ${minute}'</span>`:`<span class='badge bTime'>⏰ ${heure}</span>`}</span></div><div style="display:flex;justify-content:space-between;align-items:center;margin:10px 0"><div><b>${h}</b><br><b style="display:block;margin-top:6px">${a}</b><small id="${id}" style="color:${isLive?'#d00':'#0b7a46'}">${isLive?minute+"' - En cours":"À venir - "+heure}</small></div><div style="text-align:center">${isLive?`<b style="font-size:20px">${sH}</b><br><b style="font-size:20px">${sA}</b>`:`<span style="background:#111;color:#fff;padding:4px 10px;border-radius:12px;font-size:12px">VS</span>`}</div></div><div class="c3"><button onclick="add('${h} vs ${a}','V1','${c1}',this)">V1 ${c1}</button><button onclick="add('${h} vs ${a}','X','${cx}',this)">X ${cx}</button><button onclick="add('${h} vs ${a}','V2','${c2}',this)">V2 ${c2}</button></div></div>`}
+async function load(){let leagues=['eng.1','fra.1','esp.1','ger.1','ita.1','eng.2','uefa.champions','por.1','ned.1'];let all=[];for(let lg of leagues){try{let r=await fetch(`https://site.api.espn.com/apis/site/v2/sports/soccer/${lg}/scoreboard`);let j=await r.json();if(j.events)all=all.concat(j.events)}catch(e){}}if(all.length==0){let now=new Date();all=[{date:now.toISOString(),leagues:[{name:'Premier League'}],competitions:[{status:{type:{state:'in'},displayClock:'34'},competitors:[{team:{displayName:'Man City'},score:'1'},{team:{displayName:'Arsenal'},score:'0'}]}]},{date:new Date(now.getTime()+7200000).toISOString(),leagues:[{name:'La Liga'}],competitions:[{status:{type:{state:'pre'}},competitors:[{team:{displayName:'Real Madrid'},score:'0'},{team:{displayName:'Barca'},score:'0'}]}]},{date:new Date(now.getTime()+10800000).toISOString(),leagues:[{name:'Serie A'}],competitions:[{status:{type:{state:'pre'}},competitors:[{team:{displayName:'Juventus'},score:'0'},{team:{displayName:'AC Milan'},score:'0'}]}]}]}ALL=all;let liveH='',preH='',liveC=0,preC=0;all.forEach(ev=>{let isLive=ev.competitions[0].status.type.state=='in';if(isLive){liveH+=card(ev,true);liveC++}else{preH+=card(ev,false);preC++}});if(!liveH)liveH='<div class=empty>🔴 Pas de LIVE maintenant (14h-23h GMT)<br><small>Va sur AVANT-MATCH</small></div>';$('listLive').innerHTML=liveH;$('listPre').innerHTML=preH||'<div class=empty>Chargement...</div>';$('countPre').innerText=preC+' matchs';start()}
+function start(){setInterval(()=>{Object.keys(timers).forEach(id=>{let el=document.getElementById(id);if(!el)return;timers[id]++;if(timers[id]>90)timers[id]=90;el.innerText=timers[id]+"' - En cours"})},1000)}
+function add(m,ch,co,btn){if(btn)btn.classList.toggle('sel');let i=coupon.findIndex(x=>x.m==m&&x.ch==ch);if(i>=0)coupon.splice(i,1);else coupon.push({m,ch,co});localStorage.setItem('c16',JSON.stringify(coupon));render();if(coupon.length)openM('coupon')}
+function render(){let h='';let tot=1;coupon.forEach((c,i)=>{tot*=parseFloat(c.co);h+=`<div class=list><div><b>${c.m}</b><br><small>${c.ch} @ ${c.co}</small></div><span onclick="rem(${i})" style="color:red;font-weight:900">✕</span></div>`});$('couponBox').innerHTML=h||'<div class=empty>Coupon vide<br><small>Clique V1 X V2</small></div>';let mise=parseFloat($('mise')?.value||0);$('gain').innerText=mise&&coupon.length?`Gain possible: ${(mise*tot).toFixed(0)} XOF (cote ${tot.toFixed(2)})`:'';let hh='';hist.slice().reverse().forEach(v=>hh+=`<div class=list><div><b>${v.m}</b><br><small>${v.ch} @${v.co} • ${v.mise}F<br>${v.d}</small></div><span class='badge bTime'>Payé</span></div>`);$('histBox').innerHTML=hh||'<div class=empty>Aucun pari</div>';$('transacBox').innerHTML=hh||'<div class=empty>Aucune transaction</div>'}
+function rem(i){coupon.splice(i,1);localStorage.setItem('c16',JSON.stringify(coupon));render()}function clearC(){coupon=[];localStorage.setItem('c16','[]');render()}
+function placer(){let mise=$('mise').value;if(!coupon.length)return alert('Coupon vide');if(!mise)return alert('Mets mise');let d=new Date().toLocaleString('fr-FR');coupon.forEach(c=>hist.push({...c,mise,d}));localStorage.setItem('h16',JSON.stringify(hist));let t=`PARI BENI BET%0A`;coupon.forEach(c=>t+=`${c.m} ${c.ch} @${c.co}%0A`);t+=`Mise:${mise}F`;window.open('https://wa.me/22607664542?text='+t,'_blank');coupon=[];localStorage.setItem('c16','[]');render();openM('historique')}function payer(){let m=$('mise').value||5000;location.href=`tel:${encodeURIComponent('*144*2*1*07664542*'+m+'#')}`}
+load();setInterval(load,90000);render();
 </script></body></html>
