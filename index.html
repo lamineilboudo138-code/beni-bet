@@ -1,36 +1,56 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BENI BET</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#f2f5f7}.top{position:sticky;top:0;z-index:10;background:#fff;padding:12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee}.logo{font-weight:900;line-height:.85;font-size:19px}.logo b{color:#0f8a4a}.btns{display:flex;gap:8px;padding:10px 12px;background:#fff}.btns button{flex:1;background:#0f8a4a;color:#fff;border:0;padding:13px;border-radius:10px;font-weight:900}.card{background:#fff;margin:8px 12px;border-radius:14px;padding:12px;border:1px solid #e5e7eb}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:10px}.c{background:#f8faf9;border:1px solid #e5e7eb;border-radius:10px;padding:11px;text-align:center;font-weight:800;cursor:pointer}.c b{color:#0f8a4a;display:block}.page{display:none;position:fixed;inset:0;background:#f2f5f7;z-index:50;overflow:auto;padding-bottom:80px}.page.show{display:block}.head{position:sticky;top:0;background:#fff;padding:12px;display:flex;gap:10px;align-items:center;border-bottom:1px solid #eee}.head button{border:1px solid #ddd;background:#fff;padding:7px 12px;border-radius:8px}input{width:100%;padding:14px;border:1px solid #ddd;border-radius:10px;margin-top:9px}.go{width:100%;background:#0f8a4a;color:#fff;border:0;padding:14px;border-radius:11px;font-weight:900;margin-top:12px}.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0;border-top:1px solid #ddd;z-index:40}.bottom a{flex:1;text-align:center;font-size:10px;color:#888;text-decoration:none}.bottom a.on{color:#0f8a4a;font-weight:800}</style></head><body>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BENI BET - Parieur Pro</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-<div class="top"><div class="logo"><b>BENI</b><br>BET</div><div id="u" style="font-size:11px;font-weight:700;text-align:right">Invité<br><span style="color:#888">Non connecté</span></div></div>
+const firebaseConfig = {
+  apiKey: "AIzaSyCYvaz2Twkwe-X6TlmYbu4LjuSthC7ulLg",
+  authDomain: "beni-bet.firebaseapp.com",
+  projectId: "beni-bet",
+  storageBucket: "beni-bet.firebasestorage.app",
+  messagingSenderId: "961834222775",
+  appId: "1:961834222775:web:9526702487503a2ebbb932",
+  measurementId: "G-DXMDHLDTCH"
+};
 
-<div class="btns"><button onclick="openP('login')">Se connecter</button><button onclick="openP('register')">Inscription</button></div>
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-<div style="display:flex;gap:18px;padding:0 12px;background:#fff;border-bottom:1px solid #eee;white-space:nowrap;overflow:auto"><b style="padding:11px 0;border-bottom:2px solid #0f8a4a">Populaires</b><span style="padding:11px 0;color:#888">En Direct</span><span style="padding:11px 0;color:#888">Avant-match</span></div>
-
-<div class="card" onclick="openP('detail')"><div style="font-size:11px;color:#0f8a4a;font-weight:800">● EN DIRECT • 00:23 (0-0)</div><div style="display:flex;justify-content:space-between;font-weight:800;margin-top:7px"><span>Seville</span><span style="background:#111;color:#fff;padding:3px 9px;border-radius:7px">0:0</span><span>Rayo Vallecano</span></div><div class="grid3"><div class="c" onclick="event.stopPropagation();pari('Seville 2.36')">V1<b>2.36</b></div><div class="c" onclick="event.stopPropagation();pari('Nul 2.89')">X<b>2.89</b></div><div class="c" onclick="event.stopPropagation();pari('Rayo 3.52')">V2<b>3.52</b></div></div></div>
-
-<div class="card" onclick="openP('detail')"><div style="font-weight:700;font-size:13px">Real Madrid vs Barcelone • 19:00</div><div class="grid3"><div class="c" onclick="event.stopPropagation();pari('Real 1.95')">1<b>1.95</b></div><div class="c" onclick="event.stopPropagation();pari('Nul 3.40')">X<b>3.40</b></div><div class="c" onclick="event.stopPropagation();pari('Barca 3.80')">2<b>3.80</b></div></div></div>
-
-<div style="height:80px"></div>
-
-<!-- PAGES VRAIES - PLUS DE BLANC -->
-<div id="p-login" class="page"><div class="head"><button onclick="closeP()">←</button><b>Se connecter</b></div><div class="card"><h3>Bienvenue sur BENI BET</h3><input id="le" placeholder="Numéro ou Email"><input id="lp" type="password" placeholder="Mot de passe"><button class="go" onclick="doLogin()">Se connecter</button><p id="lm" style="color:red;font-size:12px;margin-top:8px"></p><p style="text-align:center;margin-top:12px;font-size:13px" onclick="openP('register')">Pas de compte? <b style="color:#0f8a4a">Créer un compte</b></p></div></div>
-
-<div id="p-register" class="page"><div class="head"><button onclick="closeP()">←</button><b>Inscription</b></div><div class="card"><div style="background:#e8f5ee;color:#0f8a4a;padding:9px;border-radius:8px;text-align:center;font-weight:800">BONUS 100% JUSQU'À 65 000 XOF</div><input id="re" placeholder="Numéro ou Email"><input id="rt" placeholder="Téléphone +226 07 66 45 42"><input id="rp" type="password" placeholder="Mot de passe (min 4)"><button class="go" onclick="doReg()">Créer mon compte BENI BET</button><p id="rm" style="font-size:12px;margin-top:8px"></p></div></div>
-
-<div id="p-detail" class="page"><div class="head"><button onclick="closeP()">←</button><b>Seville - Rayo</b></div><div class="card"><b>Tous les marchés</b><br><br>1X2<div class="grid3"><div class="c" onclick="pari('Seville')">V1<b>2.36</b></div><div class="c" onclick="pari('Nul')">X<b>2.89</b></div><div class="c" onclick="pari('Rayo')">V2<b>3.52</b></div></div><br>Double Chance<div class="grid3"><div class="c">1X<b>1.31</b></div><div class="c">12<b>1.42</b></div><div class="c">X2<b>1.60</b></div></div><br>Total 2.5<div class="grid3" style="grid-template-columns:1fr 1fr"><div class="c">Plus<b>2.10</b></div><div class="c">Moins<b>1.72</b></div></div></div></div>
-
-<div id="p-coupon" class="page"><div class="head"><button onclick="closeP()">←</button><b>Mon Coupon <span id="cnt">0</span></b></div><div class="card" id="cbox">Aucun pari pour l'instant. Clique une cote.</div><button class="go" style="width:92%;margin:10px 4%" onclick="envoyer()">Parier via WhatsApp 07 66 45 42</button></div>
-
-<div class="bottom"><a class="on" onclick="closeP()">🏠<br>Populaire</a><a onclick="openP('coupon')">🎫<br>Coupon <span id="bcnt">0</span></a><a onclick="if(localStorage.getItem('beni_user')){if(confirm('Se déconnecter?')){localStorage.removeItem('beni_user');location.reload()}}else openP('login')">👤<br>Compte</a><a onclick="window.open('https://wa.me/22607664542')">💬<br>Support</a></div>
-
-<script>
-let bets=[];
-function openP(n){document.getElementById('p-'+n).classList.add('show')}
-function closeP(){document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'))}
-function doReg(){let e=document.getElementById('re').value.trim(),p=document.getElementById('rp').value.trim();if(e.length<3||p.length<4){document.getElementById('rm').style.color='red';document.getElementById('rm').innerText='Remplis email/numéro et mot de passe 4 caractères mini';return}let users=JSON.parse(localStorage.getItem('beni_users')||'{}');users[e]=p;localStorage.setItem('beni_users',JSON.stringify(users));localStorage.setItem('beni_user',e);document.getElementById('rm').style.color='green';document.getElementById('rm').innerText='Compte créé mon frère! Bienvenue '+e;setTimeout(()=>{updateUser();closeP()},900)}
-function doLogin(){let e=document.getElementById('le').value.trim(),p=document.getElementById('lp').value.trim();let users=JSON.parse(localStorage.getItem('beni_users')||'{}');if(users[e]&&users[e]==p){localStorage.setItem('beni_user',e);updateUser();closeP()}else{document.getElementById('lm').innerText='Numéro ou mot de passe incorrect. Crée un compte d abord.'}}
-function updateUser(){let u=localStorage.getItem('beni_user');if(u){document.getElementById('u').innerHTML='✅ Connecté<br><b style=color:#0f8a4a>'+u+'</b>'}}
-function pari(t){bets.push(t);document.getElementById('cnt').innerText=bets.length;document.getElementById('bcnt').innerText=bets.length;document.getElementById('cbox').innerHTML=bets.join('<br>')+'<br><br><b>Cote totale '+(1.5+bets.length*0.7).toFixed(2)+'</b>';openP('coupon');let n=document.createElement('div');n.textContent='✓ Ajouté: '+t;n.style.cssText='position:fixed;bottom:80px;left:12px;right:12px;background:#112d1c;color:#fff;padding:12px;border-radius:10px;text-align:center;z-index:99';document.body.appendChild(n);setTimeout(()=>n.remove(),1800)}
-function envoyer(){if(bets.length==0){alert('Coupon vide');return}let u=localStorage.getItem('beni_user')||'Invité';window.open('https://wa.me/22607664542?text='+encodeURIComponent('Salut BENI BET, je suis '+u+' - Je veux parier: '+bets.join(' | ')))}
-updateUser();
-</script></body></html>
+window.register = async () => {
+  const email = document.getElementById('email').value;
+  const pass = document.getElementById('pass').value;
+  try {
+    await createUserWithEmailAndPassword(auth, email, pass);
+    alert("Compte créé ! Bienvenue sur BENI BET");
+    location.href = "#dashboard";
+  } catch(e){ alert(e.message); }
+}
+window.login = async () => {
+  const email = document.getElementById('email').value;
+  const pass = document.getElementById('pass').value;
+  try {
+    await signInWithEmailAndPassword(auth, email, pass);
+    alert("Connexion réussie !");
+    location.href = "#dashboard";
+  } catch(e){ alert(e.message); }
+}
+</script>
+</head>
+<body class="bg-gray-900 text-white">
+<!-- COLLE ICI LE RESTE DE TON DESIGN BENI BET, et change juste les boutons -->
+<div class="p-6 max-w-md mx-auto mt-20 bg-gray-800 rounded-xl">
+  <h1 class="text-3xl font-bold text-yellow-400 text-center mb-6">BENI BET</h1>
+  <input id="email" type="email" placeholder="Email" class="w-full p-3 mb-3 rounded bg-gray-700">
+  <input id="pass" type="password" placeholder="Mot de passe" class="w-full p-3 mb-4 rounded bg-gray-700">
+  <button onclick="register()" class="w-full bg-yellow-500 text-black font-bold p-3 rounded mb-2">S'inscrire</button>
+  <button onclick="login()" class="w-full bg-white text-black font-bold p-3 rounded">Se connecter</button>
+  <p class="text-xs text-center mt-4 text-gray-400">Projet: beni-bet connecté à Firebase ✅</p>
+</div>
+</body>
+</html>
