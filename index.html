@@ -1,47 +1,65 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BENI BET V8</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#08080f;color:#fff;padding-bottom:90px}.top{display:flex;justify-content:space-between;align-items:center;max-width:420px;margin:10px auto;background:#161625;padding:10px 14px;border-radius:12px;border:1px solid #333}.box{max-width:420px;margin:0 auto;background:#161625;border:1px solid #ffcc00;border-radius:18px;padding:12px}.tabs{display:flex;gap:8px;margin:12px 0}.tabs button{flex:1;padding:10px;border:none;border-radius:8px;font-weight:bold;background:#2a2a45;color:#aaa}.tabs button.act{background:#ffcc00;color:#000}.match{background:#24243a;border-radius:12px;padding:12px;margin:10px 0}.cotes{display:flex;gap:6px;margin-top:8px}.cotes button{flex:1;padding:10px;background:#333;color:#fff;border:1px solid #555;border-radius:8px;font-weight:bold}.cotes button.sel{background:#ffcc00;color:#000}.btn{width:100%;padding:14px;border:none;border-radius:10px;font-weight:bold;margin-top:10px}.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.95);display:none;z-index:99;overflow-y:auto;padding:20px}.modal.open{display:flex;align-items:center;justify-content:center}.card{background:#1e1e35;border:1px solid #ffcc00;border-radius:16px;padding:20px;width:100%;max-width:360px}.card input{width:100%;padding:12px;border-radius:8px;border:1px solid #444;background:#000;color:#fff;margin:8px 0;text-align:center}</style></head><body>
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BENI BET - Paiement Direct</title><style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#08080f;color:#fff;padding-bottom:90px}.top{display:flex;justify-content:space-between;max-width:420px;margin:10px auto;background:#161625;padding:12px;border-radius:12px;border:1px solid #333}.box{max-width:420px;margin:0 auto;background:#161625;border:1px solid #ffcc00;border-radius:18px;padding:12px}.match{background:#24243a;border-radius:12px;padding:12px;margin:10px 0}.cotes{display:flex;gap:6px;margin-top:8px}.cotes button{flex:1;padding:10px;background:#333;color:#fff;border:1px solid #555;border-radius:8px;font-weight:bold}.cotes button.sel{background:#ffcc00;color:#000}.btn{width:100%;padding:14px;border:none;border-radius:10px;font-weight:bold;margin-top:10px}.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.95);display:none;z-index:99;padding:20px;overflow-y:auto}.modal.open{display:flex;align-items:center;justify-content:center}.card{background:#1e1e35;border:1px solid #ffcc00;border-radius:16px;padding:20px;width:100%;max-width:360px;text-align:center}.card input{width:100%;padding:14px;border-radius:10px;border:1px solid #444;background:#000;color:#fff;margin:10px 0;text-align:center;font-size:18px}.om{background:linear-gradient(90deg,#ff6d00,#ff9800);color:#fff}.moov{background:linear-gradient(90deg,#0055ff,#00aaff);color:#fff}</style></head><body>
 
-<div class="top"><b style="color:#ffcc00">BENI BET</b><div id="authBtns" style="display:flex;gap:6px"><button onclick="openInscrire()" style="background:#00c853;color:#fff;border:none;padding:8px 14px;border-radius:20px;font-weight:bold">S'inscrire</button><button onclick="openConnecter()" style="background:#ffcc00;color:#000;border:none;padding:8px 14px;border-radius:20px;font-weight:bold">Se connecter</button></div><div id="userBtn" style="display:none;align-items:center;gap:8px"><span id="userName" style="color:#ffcc00;font-weight:bold">LAMINE</span><button onclick="deconnecter()" style="background:#333;color:#fff;border:none;padding:6px 10px;border-radius:12px;font-size:12px">Sortir</button></div></div>
+<div class="top"><b style="color:#ffcc00">BENI BET</b><button onclick="location.reload()" style="background:#ffcc00;color:#000;border:none;padding:6px 12px;border-radius:20px;font-weight:bold">Actualiser</button></div>
 
-<div class="box"><div style="background:#000;border-radius:12px;padding:12px;text-align:center"><b style="color:#ffcc00;font-size:28px" id="solde">100 000 F</b><div style="font-size:11px;color:#aaa" id="infoUser">Connecte-toi pour parier</div></div><div style="display:flex;gap:8px;margin-top:10px"><button class="btn" style="background:#00c853;color:#fff;margin:0;flex:1" onclick="openDepot()">💰 Dépôt</button><button class="btn" style="background:#ff6d00;color:#fff;margin:0;flex:1" onclick="openRetrait()">💸 Retrait</button></div><div class="tabs"><button id="bLive" onclick="showTab('live')">🔴 Direct</button><button id="bPre" class="act" onclick="showTab('pre')">🕒 Avant-Match</button></div><div id="mLive" style="display:none"></div><div id="mPre"><p style="text-align:center;color:#ffcc00">Chargement...</p></div><input id="mise" type="number" placeholder="Mise ex: 5000" style="width:100%;padding:14px;border-radius:10px;border:none;background:#000;color:#fff;text-align:center;margin:12px 0"><button class="btn" style="background:#ffcc00;color:#000" onclick="parier()">Valider mon pari</button><p id="msg" style="text-align:center;color:#00e676;margin-top:8px;font-size:13px"></p></div>
+<div class="box"><div style="background:#000;border-radius:12px;padding:12px;text-align:center"><b style="color:#ffcc00;font-size:30px">100 000 F</b><div style="font-size:11px;color:#aaa">07664542 - LAMINE - Connecté ✅</div></div>
+<div style="display:flex;gap:8px;margin-top:12px"><button class="btn om" style="margin:0;flex:1" onclick="openDepot()">💰 Dépôt Orange</button><button class="btn moov" style="margin:0;flex:1" onclick="openRetrait()">💸 Retrait</button></div>
+<div id="matchs" style="margin-top:12px"></div><input id="mise" type="number" placeholder="Mise ex: 5000" style="width:100%;padding:14px;border-radius:10px;border:none;background:#000;color:#fff;text-align:center;margin:12px 0"><button class="btn" style="background:#ffcc00;color:#000" onclick="parier()">Valider mon pari</button><p id="msg" style="text-align:center;color:#00e676;margin-top:8px"></p></div>
 
-<!-- MODAL INSCRIRE -->
-<div id="modalInscrire" class="modal"><div class="card"><h2 style="color:#00e676;text-align:center">Créer un compte</h2><input id="i_tel" placeholder="Numéro ex: 07664542" type="tel"><input id="i_nom" placeholder="Nom complet ex: LAMINE"><input id="i_pass" type="password" placeholder="Mot de passe"><input id="i_pass2" type="password" placeholder="Confirme mot de passe"><button class="btn" style="background:#00c853;color:#fff" onclick="inscrire()">S'inscrire ✅</button><button class="btn" style="background:#333;color:#fff" onclick="closeAll()">Annuler</button><p style="text-align:center;margin-top:10px;font-size:12px">Déjà un compte? <span onclick="closeAll();openConnecter()" style="color:#ffcc00;text-decoration:underline">Se connecter</span></p></div></div>
+<!-- MODAL DEPOT ORANGE MONEY DIRECT -->
+<div id="modalDepot" class="modal"><div class="card"><h2 style="color:#ff6d00">💰 Dépôt Orange Money</h2><p style="font-size:12px;color:#ccc;margin:8px 0">Entre le montant, clique PAYER, ton appli Orange Money va s'ouvrir directement avec mon numéro</p>
+<div style="background:#000;padding:10px;border-radius:10px;margin:10px 0"><small>Destinataire</small><br><b style="font-size:20px;color:#ffcc00">07 66 45 42</b><br><small>LAMINE ILBOUDO</small></div>
+<input id="mDepot" type="number" placeholder="Montant ex: 5000" oninput="calcDepot()">
+<p style="font-size:13px">Tu vas payer: <b id="afficheDepot" style="color:#ffcc00">0 F</b></p>
+<button class="btn om" onclick="payerOrange()">PAYER MAINTENANT avec Orange Money →</button>
+<button class="btn moov" onclick="payerMoov()">PAYER avec Moov Money →</button>
+<button class="btn" style="background:#333;color:#fff" onclick="closeAll()">Annuler</button>
+<p style="font-size:10px;color:#aaa;margin-top:8px">Après paiement, clique sur "J'ai payé" pour confirmer sur WhatsApp</p>
+<button class="btn" style="background:#00c853;color:#fff" onclick="confDepot()">✅ J'ai payé, confirmer</button>
+</div></div>
 
-<!-- MODAL CONNECTER -->
-<div id="modalConnecter" class="modal"><div class="card"><h2 style="color:#ffcc00;text-align:center">Se connecter</h2><input id="c_tel" placeholder="Numéro ex: 07664542" type="tel"><input id="c_pass" type="password" placeholder="Mot de passe"><button class="btn" style="background:#ffcc00;color:#000" onclick="connecter()">Connexion 🔑</button><button class="btn" style="background:#333;color:#fff" onclick="closeAll()">Annuler</button><p style="text-align:center;margin-top:10px;font-size:12px">Pas de compte? <span onclick="closeAll();openInscrire()" style="color:#00e676;text-decoration:underline">S'inscrire</span></p></div></div>
-
-<!-- MODAL DEPOT/RETRAIT -->
-<div id="modalDepot" class="modal"><div class="card"><h2 style="color:#00e676;text-align:center">Dépôt Orange/Moov</h2><div style="background:#000;padding:12px;border-radius:10px;text-align:center;margin:12px 0"><b style="font-size:22px;color:#ffcc00">07 66 45 42</b><br>LAMINE ILBOUDO</div><input id="mDepot" type="number" placeholder="Montant envoyé"><button class="btn" style="background:#00c853;color:#fff" onclick="confDepot()">J'ai envoyé ✅</button><button class="btn" style="background:#333" onclick="closeAll()">Fermer</button></div></div>
-<div id="modalRetrait" class="modal"><div class="card"><h2 style="color:#ff6d00;text-align:center">Retrait</h2><input id="mRetrait" type="number" placeholder="Montant 5000"><button class="btn" style="background:#ff6d00;color:#fff" onclick="confRetrait()">Demander retrait</button><button class="btn" style="background:#333" onclick="closeAll()">Fermer</button></div></div>
+<!-- MODAL RETRAIT DIRECT -->
+<div id="modalRetrait" class="modal"><div class="card"><h2 style="color:#00aaff">💸 Retrait Direct</h2><input id="mRetrait" type="number" placeholder="Montant à retirer ex: 10000"><input id="numRetrait" type="tel" placeholder="Ton numéro Orange Money pour recevoir" value="07664542"><button class="btn moov" onclick="demandeRetrait()">DEMANDER RETRAIT →</button><button class="btn" style="background:#333" onclick="closeAll()">Annuler</button></div></div>
 
 <script>
-let choix="",matchChoisi="",user=null;
-function openInscrire(){document.getElementById('modalInscrire').classList.add('open')}function openConnecter(){document.getElementById('modalConnecter').classList.add('open')}function openDepot(){if(!user)return openConnecter();document.getElementById('modalDepot').classList.add('open')}function openRetrait(){if(!user)return openConnecter();document.getElementById('modalRetrait').classList.add('open')}function closeAll(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('open'))}
-function showTab(t){document.getElementById('bLive').classList.toggle('act',t=='live');document.getElementById('bPre').classList.toggle('act',t=='pre');document.getElementById('mLive').style.display=t=='live'?'block':'none';document.getElementById('mPre').style.display=t=='pre'?'block':'none'}
+let choix="",matchChoisi="";
+function openDepot(){document.getElementById('modalDepot').classList.add('open')}function openRetrait(){document.getElementById('modalRetrait').classList.add('open')}function closeAll(){document.querySelectorAll('.modal').forEach(m=>m.classList.remove('open'))}
+function calcDepot(){document.getElementById('afficheDepot').innerText=(parseInt(document.getElementById('mDepot').value)||0)+' F'}
 
-function inscrire(){
- let tel=document.getElementById('i_tel').value, nom=document.getElementById('i_nom').value, p1=document.getElementById('i_pass').value, p2=document.getElementById('i_pass2').value;
- if(!tel||!nom||!p1) return alert('Remplis tout'); if(p1!=p2) return alert('Mots de passe différents');
- user={tel,nom}; localStorage.setItem('beni_user',JSON.stringify(user));
- loginOK(); closeAll(); alert('Compte créé ✅ Bienvenue '+nom);
+function payerOrange(){
+ let montant = document.getElementById('mDepot').value;
+ if(!montant || montant<100) return alert('Mets un montant minimum 100F');
+ // CODE USSD ORANGE BURKINA qui ouvre Orange Money avec numéro + montant pré-rempli
+ // *144*2*1*numero*montant#
+ let ussd = `*144*2*1*07664542*${montant}#`;
+ // Encode pour appel tel
+ let telLink = `tel:${encodeURIComponent(ussd)}`;
+ // Sur Android ça ouvre direct le composeur Orange Money
+ window.location.href = telLink;
+ // Backup WhatsApp au cas où
+ setTimeout(()=>{ if(confirm('Orange Money ne s\'est pas ouvert ? Clique OK pour payer via WhatsApp')){ confDepot(); } },2000);
 }
-function connecter(){
- let tel=document.getElementById('c_tel').value, pass=document.getElementById('c_pass').value;
- if(!tel||!pass) return alert('Remplis numéro et mot de passe');
- let saved=localStorage.getItem('beni_user'); if(saved){user=JSON.parse(saved);} else {user={tel,nom:tel};}
- loginOK(); closeAll();
-}
-function loginOK(){
- document.getElementById('authBtns').style.display='none'; document.getElementById('userBtn').style.display='flex';
- document.getElementById('userName').innerText=user.nom||user.tel; document.getElementById('infoUser').innerText=user.tel+' - Connecté ✅'; document.getElementById('msg').innerText='Bienvenue '+ (user.nom||user.tel) +'! Choisis ton pari';
-}
-function deconnecter(){localStorage.removeItem('beni_user');user=null;document.getElementById('authBtns').style.display='flex';document.getElementById('userBtn').style.display='none';document.getElementById('infoUser').innerText='Connecte-toi pour parier'}
 
-function sel(b,c,m){document.querySelectorAll('.cotes button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');choix=c;matchChoisi=m;document.getElementById('msg').innerText='✅ '+m+' -> '+c}
-function confDepot(){let v=document.getElementById('mDepot').value;window.open('https://wa.me/22607664542?text=DEPOT '+v+'F - Client '+(user?user.tel:'')+' '+(user?user.nom:''),'_blank')}
-function confRetrait(){let v=document.getElementById('mRetrait').value;window.open('https://wa.me/22607664542?text=RETRAIT '+v+'F - Client '+(user?user.tel:'')+' '+(user?user.nom:''),'_blank')}
-function parier(){if(!user)return openConnecter();let mise=document.getElementById('mise').value;if(!choix)return alert('Choisis une cote');window.open('https://wa.me/22607664542?text=PARI '+mise+'F sur '+choix+' - '+matchChoisi+' - Client '+user.tel+' '+user.nom,'_blank')}
+function payerMoov(){
+ let montant = document.getElementById('mDepot').value;
+ if(!montant) return alert('Mets montant');
+ let ussd = `*555*4*1*07664542*${montant}#`;
+ window.location.href = `tel:${encodeURIComponent(ussd)}`;
+}
 
-async function load(){try{let r=await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard');let d=await r.json();let pre='',live='';(d.events||[]).slice(0,5).forEach(ev=>{let h=ev.competitions[0].competitors[0].team.displayName,a=ev.competitions[0].competitors[1].team.displayName;let card=`<div class="match"><b>${h} vs ${a} - 19:00</b><div class="cotes"><button onclick="sel(this,'${h}','${h} vs ${a}')">${h.split(' ').pop()} 2.10</button><button onclick="sel(this,'Nul','${h} vs ${a}')">Nul 3.20</button><button onclick="sel(this,'${a}','${h} vs ${a}')">${a.split(' ').pop()} 2.85</button></div></div>`;pre+=card;});document.getElementById('mPre').innerHTML=pre||'<p>Aucun match</p>';document.getElementById('mLive').innerHTML='<p style="text-align:center;color:#aaa;padding:20px">Pas de LIVE maintenant. Reviens à 19h 🔴</p>';}catch(e){document.getElementById('mPre').innerHTML=`<div class="match"><b>Arsenal vs Coventry - 19:00</b><div class="cotes"><button onclick="sel(this,'Arsenal','Arsenal vs Coventry')">Arsenal 2.10</button><button onclick="sel(this,'Nul','Arsenal vs Coventry')">Nul 3.20</button><button onclick="sel(this,'City','Arsenal vs Coventry')">City 2.85</button></div></div>`;}}
-load(); let s=localStorage.getItem('beni_user'); if(s){user=JSON.parse(s);loginOK();}
+function confDepot(){
+ let m=document.getElementById('mDepot').value;
+ let txt=`NOUVEAU DEPOT BENI BET ✅%0AMontant: ${m}F%0AClient: 07664542 LAMINE%0AMéthode: Orange Money Direct%0AJe viens de payer sur 07 66 45 42`;
+ window.open('https://wa.me/22607664542?text='+txt,'_blank'); closeAll();
+}
+function demandeRetrait(){
+ let m=document.getElementById('mRetrait').value; let num=document.getElementById('numRetrait').value;
+ if(!m) return alert('Mets montant');
+ let txt=`DEMANDE RETRAIT BENI BET%0AMontant: ${m}F%0ANuméro pour recevoir: ${num}%0AClient: LAMINE 07664542`;
+ window.open('https://wa.me/22607664542?text='+txt,'_blank'); closeAll();
+}
+function sel(b,c,mm){document.querySelectorAll('.cotes button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');choix=c;matchChoisi=mm;document.getElementById('msg').innerText='✅ '+mm+' -> '+c}
+function parier(){let mise=document.getElementById('mise').value;if(!choix)return alert('Choisis une cote');window.open('https://wa.me/22607664542?text=PARI '+mise+'F sur '+choix+' - '+matchChoisi,'_blank')}
+async function load(){try{let r=await fetch('https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard');let d=await r.json();let h='';(d.events||[]).slice(0,3).forEach(ev=>{let a=ev.competitions[0].competitors[0].team.displayName,b=ev.competitions[0].competitors[1].team.displayName;h+=`<div class="match"><b>${a} vs ${b} - 19:00</b><div class="cotes"><button onclick="sel(this,'${a}','${a} vs ${b}')">${a.split(' ').pop()} 2.10</button><button onclick="sel(this,'Nul','${a} vs ${b}')">Nul 3.20</button><button onclick="sel(this,'${b}','${a} vs ${b}')">${b.split(' ').pop()} 2.85</button></div></div>`});document.getElementById('matchs').innerHTML=h||'<p>Chargement...</p>';}catch(e){document.getElementById('matchs').innerHTML=`<div class="match"><b>Arsenal vs Coventry - 19:00</b><div class="cotes"><button onclick="sel(this,'Arsenal','Arsenal vs Coventry')">Arsenal 2.10</button><button onclick="sel(this,'Nul','Arsenal vs Coventry')">Nul 3.20</button><button onclick="sel(this,'City','Arsenal vs Coventry')">City 2.85</button></div></div>`;}}
+load();
 </script></body></html>
