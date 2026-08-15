@@ -1,1 +1,54 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BENI BET</title><script src="https://cdn.tailwindcss.com"></script></head><body style="background:#0a0a0f;color:white;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;font-family:sans-serif"><div style="background:#1a1a24;padding:24px;border-radius:16px;max-width:360px;width:100%;text-align:center;border:1px solid #ffcc00"><h1 style="color:#ffcc00;font-size:32px;font-weight:900">BENI BET</h1><p style="color:#22c55e;font-weight:bold;margin:10px 0">ADMIN OK - 100.000F</p><div style="background:#000;padding:15px;border-radius:12px;margin:15px 0"><p>Solde</p><p style="font-size:28px;font-weight:900;color:#ffcc00">100.000 F</p><p>LAMINE - 07664542</p></div><p style="font-size:12px;opacity:0.6">Site repare avec succes</p></div><script>localStorage.setItem('benibet_user',JSON.stringify({phone:'07664542',solde:100000,name:'LAMINE ADMIN'}))</script></body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BENI BET</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#08080f;color:#fff;padding:10px}
+.box{max-width:420px;margin:10px auto;background:#161625;border:1px solid #ffcc00;border-radius:18px;padding:16px;text-align:center}
+h1{color:#ffcc00;font-size:30px}
+.solde{background:#000;border-radius:12px;padding:14px;margin:12px 0}
+.solde b{color:#ffcc00;font-size:30px}
+.match{background:#24243a;border-radius:12px;padding:10px;margin:10px 0;text-align:left}
+.match b{font-size:14px}
+.cotes{display:flex;gap:6px;margin-top:8px}
+.cotes button{flex:1;padding:9px;background:#333;color:#fff;border:1px solid #555;border-radius:8px;font-weight:bold}
+.cotes button.active{background:#ffcc00;color:#000}
+input{width:100%;padding:12px;border-radius:10px;border:none;background:#000;color:#fff;text-align:center;margin:8px 0}
+.btn{width:100%;padding:14px;border:none;border-radius:10px;font-weight:bold;margin-top:8px}
+.green{background:#00c853;color:#fff}
+.orange{background:#ff6d00;color:#fff}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>BENI BET</h1>
+<p style="color:#00e676;font-size:13px">ADMIN OK - LAMINE 07664542</p>
+<div class="solde"><div>Solde Démo</div><b id="solde">100 000 F</b><div id="info">LAMINE - 07664542</div></div>
+
+<h3 style="text-align:left">⚽ Matchs du Jour</h3>
+
+<div class="match">
+<b>🇧🇫 Burkina Faso vs Côte d'Ivoire - 19h</b>
+<div class="cotes">
+<button onclick="sel(this,'BFA 1.85')">BFA 1.85</button>
+<button onclick="sel(this,'Nul 3.10')">Nul 3.10</button>
+<button onclick="sel(this,'CIV 2.05')">CIV 2.05</button>
+</div>
+</div>
+
+<div class="match">
+<b>🇪🇸 Real Madrid vs Barça - 21h</b>
+<div class="cotes">
+<button onclick="sel(this,'Real 2.20')">Real 2.20</button>
+<button onclick="sel(this,'Nul 3.40')">Nul 3.40</button>
+<button onclick="sel(this,'Barça 2.90')">Barça 2.90</button>
+</div>
+</div>
+
+<div class="match">
+<b>🏴󐁧󐁢󐁥󐁮󐁧󐁿 Man City vs Arsenal - 17h30</b>
+<div class="cotes">
+<button
