@@ -2,92 +2,55 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BENI BET - Le Meilleur Site de Paris</title>
+<title>BENI BET - Paris Sportifs Burkina</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#061a12;color:white}
-.header{background:linear-gradient(90deg,#00ff88,#00cc6a);padding:16px;text-align:center;color:#000;font-weight:900;font-size:24px;letter-spacing:1px}
-.wrap{max-width:420px;margin:0 auto;padding:16px}
-.card{background:#0f2d1f;border:1px solid #1a4d33;padding:18px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-input{width:100%;padding:14px;margin:8px 0;border-radius:10px;border:1px solid #2a5d45;background:#0a2016;color:white;outline:none}
-button{width:100%;padding:14px;background:#00ff88;color:#000;font-weight:800;border:none;border-radius:10px;margin-top:10px;font-size:16px;cursor:pointer}
-button.sec{background:#fff}
-.match{background:#123524;padding:14px;margin:12px 0;border-radius:12px}
-.odds{display:flex;gap:8px}
-.odds button{flex:1;background:#1e4432;color:#b5ffdd}
-.small{font-size:13px;opacity:.8}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#05140e;color:#fff}
+.header{background:linear-gradient(90deg,#00ff88,#00cc6a);padding:16px;text-align:center;color:#000;font-weight:900;font-size:24px}
+.wrap{max-width:430px;margin:0 auto;padding:14px}
+.card{background:#102a1d;border:1px solid #1e4d36;padding:20px;border-radius:18px;box-shadow:0 10px 30px #0006}
+input{width:100%;padding:14px;margin:8px 0;border-radius:12px;border:1px solid #2d5f48;background:#081d13;color:#fff;font-size:16px}
+button{width:100%;padding:14px;background:#00ff88;color:#000;font-weight:900;border:none;border-radius:12px;margin-top:10px;font-size:16px;cursor:pointer}
+button:active{transform:scale(.98)}button.sec{background:#fff;color:#000}
+.match{background:#143423;padding:16px;margin:14px 0;border-radius:14px;border:1px solid #234f3a}
+.odds{display:flex;gap:8px;margin-top:10px}.odds button{flex:1;background:#1a3e2f;color:#a7ffcf;font-weight:700}
+.badge{background:#00ff88;color:#000;padding:4px 8px;border-radius:20px;font-size:12px;font-weight:800}
 </style>
 </head>
 <body>
-<div class="header">BENI BET 🇧🇫</div>
+<div class="header">BENI BET 🇧🇫 <span class="badge">LIVE</span></div>
 <div class="wrap">
 <div id="auth" class="card">
-<h2 style="margin:0 0 8px">Inscription / Connexion</h2>
-<p class="small">Bonus 1000 FCFA à l'inscription</p>
-<input id="email" placeholder="Email">
-<input id="pass" type="password" placeholder="Mot de passe (6 min)">
+<h2 style="margin:0">Rejoins BENI BET</h2><p style="opacity:.8;font-size:14px;margin:6px 0 12px">Bonus de bienvenue 1000 FCFA offert</p>
+<input id="email" type="email" placeholder="Ton email">
+<input id="pass" type="password" placeholder="Mot de passe (6 caractères min)">
 <button onclick="register()">Créer mon compte + 1000F</button>
 <button class="sec" onclick="login()">J'ai déjà un compte</button>
-<p id="msg" class="small"></p>
+<p id="msg" style="font-size:13px;min-height:18px"></p>
 </div>
-
 <div id="app" class="card" style="display:none">
 <h3 style="margin:0">Salut <span id="uemail"></span> 👋</h3>
-<p>Solde: <b id="solde" style="color:#00ff88;font-size:22px">0 FCFA</b></p>
-<button onclick="logout()" style="background:#333;color:white;padding:8px">Déconnexion</button>
-<hr style="border-color:#1a4d33;margin:16px 0">
-<div class="match">
-<strong>Burkina Faso vs Mali - Aujourd'hui 19:00</strong>
-<div class="odds">
-<button onclick="parier('Burkina',1.85)">1 - 1.85</button>
-<button onclick="parier('Nul',3.20)">X - 3.20</button>
-<button onclick="parier('Mali',4.50)">2 - 4.50</button>
+<p>Solde disponible: <br><b id="solde" style="color:#00ff88;font-size:28px">0 FCFA</b></p>
+<button onclick="logout()" style="background:#2a3a32;color:#fff;padding:10px;font-size:13px">Déconnexion</button>
+<hr style="border-color:#1d3f2f;margin:16px 0">
+<h4 style="margin:0 0 10px">Matchs du jour 🔥</h4>
+<div class="match"><strong>Burkina Faso vs Mali</strong><div style="font-size:12px;opacity:.7">Aujourd'hui • 19:00 • CAN</div><div class="odds"><button onclick="parier('Burkina',1.85)">1 - 1.85</button><button onclick="parier('Nul',3.2)">X - 3.20</button><button onclick="parier('Mali',4.5)">2 - 4.50</button></div></div>
+<div class="match"><strong>Real Madrid vs Barcelone</strong><div style="font-size:12px;opacity:.7">Liga • 21:00</div><div class="odds"><button onclick="parier('Real',2.1)">1 - 2.10</button><button onclick="parier('Nul',3.4)">X - 3.40</button><button onclick="parier('Barca',1.95)">2 - 1.95</button></div></div>
+<p id="pmsg" style="background:#0a2216;padding:10px;border-radius:10px;min-height:20px"></p>
 </div>
 </div>
-<p id="pmsg"></p>
-</div>
-</div>
-
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCVaz7I2u0Rl5USxlUEveRs_4A4_jjy7UhFRFr9uKHdu41K7WA8QS5T5rGoimat9v7fHY5Nm__SEJ3-wecjk6GfQ-Rl4aTeBBK_tKyUG57cd_iF9NhkOg".substring(0,39),
+  apiKey: "AIzaSyCYvaz2Twkwe-X6TlmYbu4LjuSthC7ulLg",
   authDomain: "beni-bet.firebaseapp.com",
   projectId: "beni-bet",
   storageBucket: "beni-bet.firebasestorage.app",
   messagingSenderId: "961834222775",
-  appId: "1:961834222775:web:9526702487503a2bebb932",
-  measurementId: "G-DXMD5Y7Z7Q"
+  appId: "1:961834222775:web:9526702487503a2ebbb932",
+  measurementId: "G-DXMDHLDTCH"
 };
-
-// Si la clé ci-dessus ne marche pas, REMPLACE juste la ligne apiKey par ta clé complète visible dans ta vidéo
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-window.register = async ()=>{
- try{
-  if(pass.value.length<6) throw new Error("Mot de passe trop court");
-  const cred = await createUserWithEmailAndPassword(auth,email.value.trim(),pass.value);
-  await setDoc(doc(db,"users",cred.user.uid),{email:email.value,solde:1000,createdAt:new Date()});
-  msg.style.color="#00ff88"; msg.innerText="✅ Compte créé ! Bonus 1000F ajouté !";
- }catch(e){msg.style.color="#ff6b6b"; msg.innerText=e.message}
-}
-window.login = async ()=>{
- try{await signInWithEmailAndPassword(auth,email.value.trim(),pass.value)}catch(e){msg.innerText=e.message}
-}
-onAuthStateChanged(auth, async(user)=>{
- if(user){
-  document.getElementById('auth').style.display="none"; document.getElementById('app').style.display="block";
-  document.getElementById('uemail').innerText=user.email;
-  const snap=await getDoc(doc(db,"users",user.uid)); 
-  if(snap.exists()) document.getElementById('solde').innerText=snap.data().solde+" FCFA";
- }else{
-  document.getElementById('auth').style.display="block"; document.getElementById('app').style.display="none";
- }
-});
-window.logout=()=>signOut(auth);
-window.parier=async(eq,cote)=>{
- const user
+const auth = getAuth
