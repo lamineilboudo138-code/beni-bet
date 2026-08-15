@@ -2,118 +2,88 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BENI BET</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>BENI BET - LIVE</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#eef2f7}
-.top{background:#fff;padding:12px;display:flex;justify-content:space-between;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:10}
-.logo{font-weight:900;color:#0f9d58}
-.card{background:#fff;margin:10px;border-radius:12px;padding:12px}
-.cote{display:inline-block;background:#f1f5f9;border:1px solid #ddd;padding:8px 12px;border-radius:8px;margin:4px;font-size:13px;font-weight:bold}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:10px;border-top:1px solid #ddd}
-.page{display:none;position:fixed;inset:0;background:#fff;z-index:20;overflow:auto}
-.page.show{display:block}
-.btn{padding:8px 12px;background:#eee;border:0;border-radius:8px}
+body{background:#f0f2f5}
+.top{background:#fff;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;border-bottom:1px solid #e5e7eb}
+.logo{font-weight:900;font-size:22px;color:#0f9d58;letter-spacing:.5px}.logo b{color:#111}
+.tabs-top{display:flex;gap:8px;padding:10px;background:#fff;overflow:auto;position:sticky;top:50px;z-index:19}
+.tabs-top span{white-space:nowrap;padding:8px 16px;border-radius:20px;border:1px solid #ddd;font-size:13px;background:#fff;cursor:pointer;transition:.2s}
+.tabs-top span.on{background:#0f9d58;color:#fff;border-color:#0f9d58;font-weight:bold;transform:scale(1.05)}
+.sports-bar{display:flex;gap:8px;padding:8px 10px;background:#fff;overflow:auto;border-bottom:1px solid #eee}
+.sports-bar i{font-style:normal;white-space:nowrap;padding:6px 12px;background:#f3f4f6;border-radius:20px;font-size:12px;cursor:pointer}
+.sports-bar i.on{background:#111;color:#fff}
+h3{padding:12px;font-size:12px;color:#6b7280;letter-spacing:1px;display:flex;justify-content:space-between}
+.card{background:#fff;margin:0 10px 10px;border-radius:14px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);cursor:pointer;transition:.15s}
+.card:active{transform:scale(.98)}
+.row{display:flex;justify-content:space-between;align-items:center}
+.tm{font-size:11px;color:#6b7280}.tm b{color:#111;font-size:13px}
+.live-dot{display:inline-block;width:6px;height:6px;background:#ef4444;border-radius:50%;margin-right:4px;animation:pulse 1s infinite}
+@keyframes pulse{0%{opacity:1}50%{opacity:.2}100%{opacity:1}}
+.score{font-weight:900;font-size:16px;text-align:right;line-height:18px}
+.score small{display:block;font-size:10px;color:#ef4444;font-weight:bold}
+.cotes{display:flex;gap:6px;margin-top:10px}
+.cote{flex:1;background:#f8fafc;border:1px solid #e5e7eb;text-align:center;padding:10px 0;border-radius:10px;font-weight:800;font-size:13px;transition:.3s;position:relative;overflow:hidden}
+.cote.up{border-color:#0f9d58;color:#0f9d58;background:#ecfdf5}
+.cote.down{border-color:#ef4444;color:#ef4444;background:#fef2f2}
+.cote:active{background:#0f9d58;color:#fff}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:space-around;padding:8px 0 12px;border-top:1px solid #e5e7eb;z-index:30}
+.bottom a{font-size:11px;text-decoration:none;color:#9ca3af;text-align:center;flex:1}.bottom a.on{color:#0f9d58;font-weight:900}
+.fab{position:fixed;bottom:64px;left:50%;transform:translateX(-50%);background:#0f9d58;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 8px 20px rgba(15,157,88,.4);z-index:31;animation:float 2s infinite}
+@keyframes float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-4px)}}
+.page{display:none;position:fixed;inset:0;background:#f0f2f5;z-index:40;overflow:auto;padding-bottom:80px}.page.show{display:block}
+.head2{background:#fff;padding:12px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #eee;position:sticky;top:0;z-index:2}
+.btn-back{background:#f3f4f6;border:0;padding:8px 14px;border-radius:10px;cursor:pointer;font-weight:bold}
+.tabs2{display:flex;gap:8px;padding:10px;background:#fff;overflow:auto;border-bottom:1px solid #eee;position:sticky;top:49px}
+.tabs2 span{white-space:nowrap;padding:8px 14px;background:#f3f4f6;border-radius:20px;font-size:12px;cursor:pointer}.tabs2 span.on{background:#0f9d58;color:#fff}
+.market{background:#fff;margin:10px;border-radius:14px;padding:12px}
 </style>
 </head>
 <body>
 
 <div id="home">
-<div class="top"><div class="logo">BENI BET</div><div>BF</div></div>
-
-<div style="padding:10px">
-<span style="background:#0f9d58;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px">EN DIRECT</span>
-<span style="background:#fff;border:1px solid #ddd;padding:6px 12px;border-radius:20px;font-size:12px;margin-left:6px" onclick="openP('avant')">AVANT MATCH</span>
+<div class="top"><div class="logo">BENI <b>BET</b></div><div style="display:flex;gap:10px"><span>🔍</span><span>🔔</span></div></div>
+<div class="tabs-top">
+<span class="on" id="t-live">🟢 EN DIRECT</span>
+<span onclick="openP('avant')">AVANT-MATCH</span>
+<span onclick="openP('sports')">⚽ SPORTS</span>
+<span onclick="openP('badminton')">🏸 BADMINTON</span>
+</div>
+<div class="sports-bar">
+<i class="on">Tout</i><i>Football</i><i>Tennis</i><i>Basket</i><i>Volley</i><i>Badminton</i><i>Casino</i>
 </div>
 
-<h3 style="padding:10px;font-size:13px">POPULAIRE EN DIRECT <span style="color:red">LIVE</span></h3>
+<h3>POPULAIRE EN DIRECT <span><span class="live-dot"></span>LIVE</span></h3>
 
-<div class="card" onclick="openP('match')">
-<b>Alaves vs Getafe</b><br><small>81 En cours - 0-0</small><br>
-<div style="margin-top:8px"><span class="cote" onclick="event.stopPropagation();parier('Alaves 1.87')">V1 1.87</span><span class="cote">X 3.19</span><span class="cote">V2 3.22</span></div>
+<div class="card" onclick="openMatch('Alaves','Getafe')">
+<div class="row"><div><div class="tm"><span class="live-dot"></span><b id="min1">84</b>' En cours</div><b>Alaves</b><br><b>Getafe</b></div><div class="score"><small id="live1">LIVE</small><div id="s1a">0</div><div id="s1b">0</div></div></div>
+<div class="cotes"><div class="cote" id="c1" onclick="event.stopPropagation();bet('Alaves 1.87')">V1 <b>1.87</b></div><div class="cote" onclick="event.stopPropagation();bet('X 3.19')">X <b>3.19</b></div><div class="cote" id="c3" onclick="event.stopPropagation();bet('Getafe 3.22')">V2 <b>3.22</b></div></div>
 </div>
 
-<div class="card" onclick="openP('match')">
-<b>Academico vs Santa Clara</b><br><small>90 En cours - 0-1</small><br>
-<div style="margin-top:8px"><span class="cote">V1 1.62</span><span class="cote">X 3.13</span><span class="cote">V2 3.31</span></div>
+<div class="card" onclick="openMatch('Academico','Santa Clara')">
+<div class="row"><div><div class="tm"><span class="live-dot"></span><b id="min2">89</b>' En cours</div><b>Academico Viseu</b><br><b>Santa Clara</b></div><div class="score"><small>LIVE</small><div>0</div><div>1</div></div></div>
+<div class="cotes"><div class="cote">V1 <b>1.62</b></div><div class="cote">X <b>3.13</b></div><div class="cote">V2 <b>3.31</b></div></div>
 </div>
 
 <div class="card" onclick="openP('badminton')">
-<b>Badminton - Kabore vs Ouedraogo</b><br><small>Open Burkina</small><br>
-<div style="margin-top:8px"><span class="cote">V1 1.95</span><span class="cote">V2 1.80</span></div>
+<div class="row"><div><div class="tm">14:00 - Open Burkina</div><b>🏸 Kabore A.</b><br><b>Ouedraogo S.</b></div><div class="score"><small style="color:#0f9d58">DEMAIN</small></div></div>
+<div class="cotes"><div class="cote">V1 <b>1.95</b></div><div class="cote">V2 <b>1.80</b></div></div>
 </div>
 
-<div style="height:80px"></div>
+<div style="height:100px"></div>
 </div>
 
 <div id="p-match" class="page">
-<div style="padding:12px;border-bottom:1px solid #eee"><button class="btn" onclick="closeP()">Retour</button> <b>Match Detail</b></div>
-<div style="padding:12px">
-<div class="card"><b>1X2</b><br><span class="cote" onclick="parier('V1')">V1 1.87</span><span class="cote">X 3.19</span><span class="cote">V2 3.22</span></div>
-<div class="card"><b>Totaux 2.5</b><br><span class="cote">Plus 2.10</span><span class="cote">Moins 1.72</span></div>
-<div class="card"><b>Handicap</b><br><span class="cote">H1 -1 3.40</span><span class="cote">H2 +1 1.85</span></div>
-<div class="card"><b>Corners</b><br><span class="cote">Plus 8.5 1.90</span><span class="cote">Moins 8.5 1.85</span></div>
-<div class="card"><b>Buteur</b><br><span class="cote">Alaves 9 - 2.80</span></div>
-</div>
-</div>
-
-<div id="p-avant" class="page">
-<div style="padding:12px;border-bottom:1px solid #eee"><button class="btn" onclick="closeP()">Retour</button> <b>Avant Match</b></div>
-<div class="card">Real Madrid vs Barca - Demain 20h00<br><span class="cote">1.95</span><span class="cote">3.40</span><span class="cote">3.80</span></div>
+<div class="head2"><button class="btn-back" onclick="closeP()">←</button><b id="mtitle">Alaves vs Getafe</b><span style="margin-left:auto;color:#ef4444;font-size:12px" id="mtimer">84' LIVE</span></div>
+<div style="background:#111;color:#fff;padding:18px;text-align:center"><div id="mscore" style="font-size:32px;font-weight:900">0 - 0</div><div id="mmin" style="color:#9ca3af;font-size:12px">84 minute - En cours</div></div>
+<div class="tabs2"><span class="on" onclick="sw(this,'pr')">Principal</span><span onclick="sw(this,'tot')">Totaux</span><span onclick="sw(this,'hand')">Handicap</span><span onclick="sw(this,'corn')">Corners</span><span onclick="sw(this,'but')">Buteur</span></div>
+<div id="tb-pr"><div class="market"><h4>1X2</h4><div class="cotes"><div class="cote" onclick="bet('V1')">V1 1.87</div><div class="cote" onclick="bet('X')">X 3.19</div><div class="cote" onclick="bet('V2')">V2 3.22</div></div></div><div class="market"><h4>Double Chance</h4><div class="cotes"><div class="cote">1X 1.25</div><div class="cote">12 1.18</div><div class="cote">X2 1.55</div></div></div></div>
+<div id="tb-tot" style="display:none"><div class="market"><h4>Totaux 2.5 Buts - Le match bouge !</h4><div class="cotes"><div class="cote">Plus 2.5 - 2.10</div><div class="cote">Moins 2.5 - 1.72</div></div></div></div>
+<div id="tb-hand" style="display:none"><div class="market"><h4>Handicap Europeen</h4><div class="cotes"><div class="cote">H1 (-1) 3.40</div><div class="cote">H 0 3.80</div><div class="cote">H2 (+1) 1.85</div></div></div></div>
+<div id="tb-corn" style="display:none"><div class="market"><h4>Corners</h4><div class="cotes"><div class="cote">Plus 8.5 1.90</div><div class="cote">Moins 8.5 1.85</div></div></div></div>
+<div id="tb-but" style="display:none"><div class="market"><h4>Buteur a tout moment</h4><div class="cotes"><div class="cote">Alaves 9 - 2.80</div><div class="cote">Getafe 10 - 3.20</div></div></div></div>
 </div>
 
-<div id="p-badminton" class="page">
-<div style="padding:12px;border-bottom:1px solid #eee"><button class="btn" onclick="closeP()">Retour</button> <b>Badminton</b></div>
-<div class="card">Kabore vs Ouedraogo - 14h00<br><span class="cote">1.95</span><span class="cote">1.80</span></div>
-</div>
-
-<div id="p-histo" class="page">
-<div style="padding:12px;border-bottom:1px solid #eee"><button class="btn" onclick="closeP()">Retour</button> <b>Historique</b></div>
-<div style="text-align:center;padding:40px;color:#888">Aucun pari<br><button onclick="closeP()" style="margin-top:12px;background:#0f9d58;color:#fff;border:0;padding:10px 18px;border-radius:20px">Parier</button></div>
-</div>
-
-<div id="p-menu" class="page">
-<div style="background:#0f9d58;color:#fff;padding:24px;text-align:center">
-<div style="background:#fff;color:#0f9d58;width:60px;height:60px;border-radius:50%;margin:0 auto;line-height:60px;font-size:28px">A</div>
-<h3>Joueur BENI</h3><p>+226 07 66 45 42</p><p>Solde 0 XOF</p>
-</div>
-<div>
-<div onclick="openP('infos')" style="padding:14px;border-bottom:1px solid #eee;background:#fff">Informations personnelles ></div>
-<div onclick="openP('histo')" style="padding:14px;border-bottom:1px solid #eee;background:#fff">Historique Depot ></div>
-<div onclick="openP('histo')" style="padding:14px;border-bottom:1px solid #eee;background:#fff">Historique Paris ></div>
-<div onclick="openP('parametres')" style="padding:14px;border-bottom:1px solid #eee;background:#fff">Parametres ></div>
-<a href="https://wa.me/22607664542" style="display:block;padding:14px;background:#fff;text-decoration:none;color:#111">Support WhatsApp ></a>
-</div>
-<button class="btn" style="margin:12px" onclick="closeP()">Retour Accueil</button>
-</div>
-
-<div id="p-parametres" class="page">
-<div style="padding:12px;border-bottom:1px solid #eee"><button class="btn" onclick="openP('menu')">Retour Menu</button> <b>Parametres</b></div>
-<div style="padding:12px">
-<div class="card">Langue<br><select style="width:100%;padding:8px"><option>Francais</option></select></div>
-<div class="card">Notifications<br><input type="checkbox" checked> Bonus</div>
-<div class="card">Version BENI BET v4 STABLE</div>
-</div>
-</div>
-
-<div id="p-infos" class="page">
-<div style="padding:12px"><button class="btn" onclick="openP('menu')">Retour</button> <b>Infos</b></div>
-<div class="card">Nom: Joueur BENI<br>Tel: 07 66 45 42</div>
-</div>
-
-<div class="bottom">
-<a href="#" onclick="closeP();return false" style="text-decoration:none;color:#0f9d58;font-size:11px;text-align:center">Direct</a>
-<a href="#" onclick="openP('avant');return false" style="text-decoration:none;color:#888;font-size:11px;text-align:center">Avant</a>
-<a href="#" onclick="openP('histo');return false" style="text-decoration:none;color:#888;font-size:11px;text-align:center">Histo</a>
-<a href="#" onclick="openP('menu');return false" style="text-decoration:none;color:#888;font-size:11px;text-align:center">Menu</a>
-</div>
-
-<script>
-function openP(n){document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));document.getElementById('p-'+n).classList.add('show');window.scrollTo(0,0)}
-function closeP(){document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'))}
-function parier(t){alert('Pari ajoute: '+t);window.open('https://wa.me/22607664542?text=Je veux parier '+t,'_blank')}
-console.log('BENI BET OK - pas de bug apostrophe');
-</script>
-</body>
-                                                                                                                                 </html>
+<div id="p-avant" class="page"><div class="head2"><button class="btn-back" onclick="closeP()">←</button><b>Avant-Match</b></div><div class="card" onclick="openMatch('Real','Barca')"><b>Real Madrid vs Barcelone</b><br><small>Demain 20:00</small><div class="cotes"><div class="cote">1.95
