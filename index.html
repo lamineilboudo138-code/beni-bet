@@ -1,56 +1,41 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BENI BET - Paris Sportifs Burkina</title>
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#05140e;color:#fff}
-.header{background:linear-gradient(90deg,#00ff88,#00cc6a);padding:16px;text-align:center;color:#000;font-weight:900;font-size:24px}
-.wrap{max-width:430px;margin:0 auto;padding:14px}
-.card{background:#102a1d;border:1px solid #1e4d36;padding:20px;border-radius:18px;box-shadow:0 10px 30px #0006}
-input{width:100%;padding:14px;margin:8px 0;border-radius:12px;border:1px solid #2d5f48;background:#081d13;color:#fff;font-size:16px}
-button{width:100%;padding:14px;background:#00ff88;color:#000;font-weight:900;border:none;border-radius:12px;margin-top:10px;font-size:16px;cursor:pointer}
-button:active{transform:scale(.98)}button.sec{background:#fff;color:#000}
-.match{background:#143423;padding:16px;margin:14px 0;border-radius:14px;border:1px solid #234f3a}
-.odds{display:flex;gap:8px;margin-top:10px}.odds button{flex:1;background:#1a3e2f;color:#a7ffcf;font-weight:700}
-.badge{background:#00ff88;color:#000;padding:4px 8px;border-radius:20px;font-size:12px;font-weight:800}
-</style>
-</head>
-<body>
-<div class="header">BENI BET 🇧🇫 <span class="badge">LIVE</span></div>
-<div class="wrap">
-<div id="auth" class="card">
-<h2 style="margin:0">Rejoins BENI BET</h2><p style="opacity:.8;font-size:14px;margin:6px 0 12px">Bonus de bienvenue 1000 FCFA offert</p>
-<input id="email" type="email" placeholder="Ton email">
-<input id="pass" type="password" placeholder="Mot de passe (6 caractères min)">
-<button onclick="register()">Créer mon compte + 1000F</button>
-<button class="sec" onclick="login()">J'ai déjà un compte</button>
-<p id="msg" style="font-size:13px;min-height:18px"></p>
-</div>
-<div id="app" class="card" style="display:none">
-<h3 style="margin:0">Salut <span id="uemail"></span> 👋</h3>
-<p>Solde disponible: <br><b id="solde" style="color:#00ff88;font-size:28px">0 FCFA</b></p>
-<button onclick="logout()" style="background:#2a3a32;color:#fff;padding:10px;font-size:13px">Déconnexion</button>
-<hr style="border-color:#1d3f2f;margin:16px 0">
-<h4 style="margin:0 0 10px">Matchs du jour 🔥</h4>
-<div class="match"><strong>Burkina Faso vs Mali</strong><div style="font-size:12px;opacity:.7">Aujourd'hui • 19:00 • CAN</div><div class="odds"><button onclick="parier('Burkina',1.85)">1 - 1.85</button><button onclick="parier('Nul',3.2)">X - 3.20</button><button onclick="parier('Mali',4.5)">2 - 4.50</button></div></div>
-<div class="match"><strong>Real Madrid vs Barcelone</strong><div style="font-size:12px;opacity:.7">Liga • 21:00</div><div class="odds"><button onclick="parier('Real',2.1)">1 - 2.10</button><button onclick="parier('Nul',3.4)">X - 3.40</button><button onclick="parier('Barca',1.95)">2 - 1.95</button></div></div>
-<p id="pmsg" style="background:#0a2216;padding:10px;border-radius:10px;min-height:20px"></p>
-</div>
-</div>
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BENI BET | 1x Style</title><style>
+*{box-sizing:border-box;margin:0;font-family:Inter,system-ui}body{background:#0e1621;color:#fff;display:flex;flex-direction:column;min-height:100vh}
+.top{height:56px;background:#19335a;display:flex;align-items:center;justify-content:space-between;padding:0 12px;position:sticky;top:0;z-index:10}
+.logo{font-weight:900;font-size:20px;letter-spacing:1px}.logo b{color:#2d9bf0}.bal{background:#1e4a8a;border:1px solid #2d7be6;padding:6px 14px;border-radius:6px;font-weight:800;color:#7cc4ff}
+.wrap{display:flex;flex:1} .left{width:220px;background:#152236;display:none} @media(min-width:900px){.left{display:block}} .main{flex:1;padding:10px} .right{width:320px;background:#152236;border-left:1px solid #1e314f;padding:10px;position:sticky;top:56px;height:calc(100vh - 56px)}
+.card{background:#1a2a4a;border-radius:8px;margin-bottom:10px;overflow:hidden} .card h4{padding:10px;background:#20355f;font-size:13px} .match{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-top:1px solid #24365e}
+.odds{display:flex;gap:6px} .o{background:#2a426c;border:1px solid #3a5a90;padding:6px 10px;border-radius:6px;font-weight:700;cursor:pointer;font-size:13px} .o:hover{background:#3867b3} .o.active{background:#2d9bf0;color:#fff}
+.btn{width:100%;padding:13px;border:0;border-radius:8px;font-weight:900;cursor:pointer} .blue{background:#2d9bf0;color:#fff} .green{background:#00b050;color:#fff}
+input{width:100%;padding:11px;border-radius:6px;border:1px solid #2a4a7a;background:#0e1a2e;color:#fff;margin-top:6px}
+.live{color:#ff3b3b;font-size:11px;font-weight:800;animation:blink 1s infinite} @keyframes blink{50%{opacity:.3}}
+</style></head><body>
+<div class="top"><div class="logo">BENI <b>BET</b></div><div style="display:flex;gap:8px;align-items:center"><span id="solde" class="bal">1000 FCFA</span><button onclick="logout()" style="background:none;border:0;color:#8aa4c7">↪</button></div></div>
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCYvaz2Twkwe-X6TlmYbu4LjuSthC7ulLg",
-  authDomain: "beni-bet.firebaseapp.com",
-  projectId: "beni-bet",
-  storageBucket: "beni-bet.firebasestorage.app",
-  messagingSenderId: "961834222775",
-  appId: "1:961834222775:web:9526702487503a2ebbb932",
-  measurementId: "G-DXMDHLDTCH"
-};
-const app = initializeApp(firebaseConfig);
-const auth = getAuth
+<div id="login" style="max-width:380px;margin:40px auto;background:#152236;padding:20px;border-radius:10px">
+<h2 style="margin-bottom:10px">Connexion • Bonus 1000 FCFA</h2><input id="email" placeholder="Email"><input id="pass" type="password" placeholder="Mot de passe (6+)"><button class="btn blue" style="margin-top:12px" onclick="creer()">Créer un compte +1000F</button><button class="btn" style="background:#253a5e;color:#fff;margin-top:8px" onclick="connexion()">Se connecter</button><p id="msg" style="color:#ff6b6b;margin-top:8px"></p><p style="font-size:12px;color:#7a90b3;margin-top:10px">DEMO - Pas d'argent réel</p></div>
+
+<div id="app" class="wrap" style="display:none">
+<div class="left"><div class="card"><h4>SPORTS</h4><div style="padding:10px;font-size:13px;line-height:28px">⚽ Football<br>🏀 Basketball<br>🎾 Tennis<br>🚀 Crash (Bientôt)</div></div></div>
+<div class="main">
+<div class="card"><h4><span class="live">● LIVE</span> Burkina Faso • Ligue 1</h4>
+<div class="match"><div><b>Burkina Faso vs Mali</b><br><small style="color:#8aa4c7">19:00 • 1X2</small></div><div class="odds"><span class="o" onclick="addBet('BFA vs MLI','Burkina',1.85,this)">1.85</span><span class="o" onclick="addBet('BFA vs MLI','Nul',3.20,this)">3.20</span><span class="o" onclick="addBet('BFA vs MLI','Mali',4.50,this)">4.50</span></div></div>
+<div class="match"><div><b>AS Douanes vs EFO</b><br><small style="color:#8aa4c7">20:30</small></div><div class="odds"><span class="o" onclick="addBet('Douanes vs EFO','Douanes',2.10,this)">2.10</span><span class="o" onclick="addBet('Douanes vs EFO','Nul',3.00,this)">3.00</span><span class="o" onclick="addBet('Douanes vs EFO','EFO',3.40,this)">3.40</span></div></div>
+</div>
+<div class="card"><h4>Top Matchs Europe</h4>
+<div class="match"><div><b>Real vs Barca</b><br><small style="color:#8aa4c7">21:00</small></div><div class="odds"><span class="o" onclick="addBet('Real vs Barca','Real',2.15,this)">2.15</span><span class="o" onclick="addBet('Real vs Barca','Nul',3.40,this)">3.40</span><span class="o" onclick="addBet('Real vs Barca','Barca',3.80,this)">3.80</span></div></div></div>
+</div>
+<div class="right"><h3>Coupon <span id="nb" style="background:#2d9bf0;padding:2px 6px;border-radius:10px;font-size:12px">0</span></h3><div id="coupon" style="margin:10px 0;min-height:120px;color:#8aa4c7;font-size:13px">Clique sur une cote pour parier</div><div style="border-top:1px solid #24365e;padding-top:10px"><label style="font-size:12px">Mise (FCFA)</label><input id="mise" type="number" value="500" min="100"><div style="display:flex;justify-content:space-between;margin:8px 0;font-size:13px"><span>Cote totale:</span><b id="coteT">0.00</b></div><div style="display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px"><span>Gain potentiel:</span><b id="gain" style="color:#00ff88">0 FCFA</b></div><button class="btn green" onclick="placer()">PLACER UN PARI</button><button class="btn" style="background:#2a426c;color:#fff;margin-top:6px" onclick="recharge(2000)">+ Recharge DEMO 2000F</button></div></div>
+</div>
+<script>
+let bal=parseInt(localStorage.getItem('bb2_bal')||'1000');let bets=[];let user=localStorage.getItem('bb2_user');
+const $=s=>document.getElementById(s); function refresh(){ $('solde').textContent=bal+' FCFA'; localStorage.setItem('bb2_bal',bal); let tot=bets.reduce((a,b)=>a*b.c,1)||0; $('coteT').textContent=tot?tot.toFixed(2):'0.00'; let m=parseInt($('mise').value||0); $('gain').textContent=Math.round(m*tot)+' FCFA'; $('nb').textContent=bets.length}
+function showApp(){ $('login').style.display='none'; $('app').style.display='flex'; refresh() } if(user)showApp();
+function creer(){ if(email.value.length<4||pass.value.length<6){msg.textContent='Email + 6 carac';return} localStorage.setItem('bb2_user',email.value); localStorage.setItem('bb2_bal','1000'); bal=1000; showApp() }
+function connexion(){ if(!email.value){msg.textContent='Email requis';return} localStorage.setItem('bb2_user',email.value); bal=parseInt(localStorage.getItem('bb2_bal')||'1000'); showApp() }
+function logout(){ localStorage.removeItem('bb2_user'); location.reload() }
+function recharge(x){ bal+=x; refresh(); alert('DEMO +'+x+'F') }
+function addBet(m,choix,c,el){ el.classList.toggle('active'); let i=bets.findIndex(b=>b.m===m); if(i>=0)bets.splice(i,1); else bets.push({m,choix,c}); render() }
+function render(){ let h=''; bets.forEach(b=>h+=`<div style="background:#1a2a4a;padding:8px;border-radius:6px;margin-bottom:6px;display:flex;justify-content:space-between"><span>${b.m}<br><small>${b.choix} @ ${b.c}</small></span><span onclick="this.parentElement.remove();bets=bets.filter(x=>x.m!==b.m);render()" style="cursor:pointer">✕</span></div>`); $('coupon').innerHTML=h||'Clique sur une cote'; refresh() }
+function placer(){ if(!bets.length){alert('Ajoute une cote');return} let mise=parseInt($('mise').value); if(mise>bal){alert('Solde insuffisant');return} if(mise<100){alert('Mise min 100F');return} let tot=bets.reduce((a,b)=>a*b.c,1); let win=Math.random()>0.45; if(win){ let g=Math.round(mise*tot); bal+=g; alert('GAGNÉ ! +'+g+'F\nCote: '+tot.toFixed(2)) } else { bal-=mise; alert('PERDU -'+mise+'F') } bets=[]; document.querySelectorAll('.o.active').forEach(e=>e.classList.remove('active')); render(); refresh() }
+$('mise').addEventListener('input',refresh);
+</script></body></html>
